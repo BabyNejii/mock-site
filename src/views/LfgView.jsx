@@ -51,7 +51,7 @@ export default function LfgView({ lfgPosts, onOpenPostLfg }) {
         <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-4 pb-4 border-b border-[#e4e4e7] dark:border-[#222632]">
           <div className="space-y-1">
             <h1 className="text-xl sm:text-2xl font-bold tracking-tight text-[#18181b] dark:text-[#ededef]">
-              {lang === 'bg' ? 'Търсене на съотборници (Team Finder)' : 'Team Finder Board'}
+              {lang === 'bg' ? 'Намери отбор (Team Finder)' : 'Team Finder Board'}
             </h1>
             <p className="text-xs sm:text-sm text-[#64646e] dark:text-[#8a8a93]">
               {lang === 'bg'
