@@ -75,7 +75,7 @@ export default function LeaderboardView({ teams, onSelectTeam, onOpenRegisterTea
 
             <button
               onClick={onOpenRegisterTeam}
-              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-md bg-[#00966e] hover:bg-[#00825f] text-white text-xs font-semibold shadow-xs transition-colors cursor-pointer shrink-0"
+              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-md bg-[#00966e] hover:bg-[#00825f] text-white text-xs font-semibold shadow-xs transition-colors cursor-pointer shrink-0 whitespace-nowrap"
             >
               <Plus className="w-3.5 h-3.5" />
               <span>{lang === 'bg' ? 'Регистрирай отбор' : 'Register Squad'}</span>
@@ -104,7 +104,7 @@ export default function LeaderboardView({ teams, onSelectTeam, onOpenRegisterTea
         <div className="overflow-x-auto">
           <table className="w-full text-left border-collapse text-xs">
             <thead>
-              <tr className="border-b border-[#e4e4e7] dark:border-[#222632] bg-[#f8f9fa] dark:bg-[#0f1117] text-[#64646e] dark:text-[#8a8a93] font-medium">
+              <tr className="border-b border-[#e4e4e7] dark:border-[#222632] bg-[#f8f9fa] dark:bg-[#0f1117] text-[#64646e] dark:text-[#8a8a93] font-medium whitespace-nowrap">
                 <th className="py-3 px-4 w-14 text-center font-mono">{lang === 'bg' ? 'Ранг' : 'Rank'}</th>
                 <th className="py-3 px-4">{lang === 'bg' ? 'Отбор' : 'Squad'}</th>
                 <th className="py-3 px-4">{lang === 'bg' ? 'Фокус дисциплини' : 'Focus Disciplines'}</th>

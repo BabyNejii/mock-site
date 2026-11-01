@@ -55,7 +55,7 @@ export default function Navbar({ activeTab, setActiveTab, isDark, toggleTheme, o
                 <button
                   key={item.id}
                   onClick={() => handleTabClick(item.id)}
-                  className={`px-3 py-1.5 text-xs font-medium rounded-md transition-colors cursor-pointer ${
+                  className={`px-3 py-1.5 text-xs font-medium rounded-md transition-colors cursor-pointer whitespace-nowrap ${
                     isActive
                       ? 'bg-[#18181b] text-white dark:bg-[#ededef] dark:text-[#0c0c0e]'
                       : 'text-[#64646e] dark:text-[#8a8a93] hover:text-[#18181b] dark:hover:text-[#ededef] hover:bg-[#f3f3f5] dark:hover:bg-[#131315]'
@@ -98,7 +98,7 @@ export default function Navbar({ activeTab, setActiveTab, isDark, toggleTheme, o
             {/* Register Team Button */}
             <button
               onClick={onOpenRegisterTeam}
-              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-md bg-[#00966e] hover:bg-[#00825f] text-white text-xs font-semibold shadow-xs transition-colors cursor-pointer"
+              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-md bg-[#00966e] hover:bg-[#00825f] text-white text-xs font-semibold shadow-xs transition-colors cursor-pointer whitespace-nowrap shrink-0"
             >
               <Plus className="w-3.5 h-3.5" />
               <span>{t.nav.registerTeam}</span>

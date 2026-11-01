@@ -93,7 +93,7 @@ END:VCALENDAR`;
             <button
               key={opt.id}
               onClick={() => setSelectedType(opt.id)}
-              className={`px-2.5 py-1 rounded text-xs font-medium transition-colors cursor-pointer ${
+              className={`px-2.5 py-1 rounded text-xs font-medium transition-colors cursor-pointer whitespace-nowrap shrink-0 ${
                 selectedType === opt.id
                   ? 'bg-[#18181b] text-white dark:bg-[#ededef] dark:text-[#0c0e12]'
                   : 'border border-[#e4e4e7] dark:border-[#222632] bg-transparent text-[#64646e] dark:text-[#8a8a93] hover:text-[#18181b] dark:hover:text-[#ededef]'
@@ -169,7 +169,7 @@ END:VCALENDAR`;
                 <div className="shrink-0 flex items-center gap-2 pt-2 md:pt-0">
                   <button
                     onClick={() => handleDownloadIcs(evt)}
-                    className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded border border-[#e4e4e7] dark:border-[#222632] hover:bg-white dark:hover:bg-[#13161f] text-[#18181b] dark:text-[#ededef] text-xs font-mono font-medium transition-colors cursor-pointer"
+                    className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded border border-[#e4e4e7] dark:border-[#222632] hover:bg-white dark:hover:bg-[#13161f] text-[#18181b] dark:text-[#ededef] text-xs font-mono font-medium transition-colors cursor-pointer whitespace-nowrap shrink-0"
                     title={lang === 'bg' ? 'Експортирай към .ics календар' : 'Export event to .ics format'}
                   >
                     <Download className="w-3.5 h-3.5" />
@@ -179,7 +179,7 @@ END:VCALENDAR`;
                     href={evt.url}
                     target="_blank"
                     rel="noreferrer"
-                    className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded bg-[#00966e] hover:bg-[#00825f] text-white text-xs font-semibold shadow-xs transition-colors"
+                    className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded bg-[#00966e] hover:bg-[#00825f] text-white text-xs font-semibold shadow-xs transition-colors whitespace-nowrap shrink-0"
                   >
                     <span>{lang === 'bg' ? 'Регистрация' : 'Register'}</span>
                     <ExternalLink className="w-3.5 h-3.5" />

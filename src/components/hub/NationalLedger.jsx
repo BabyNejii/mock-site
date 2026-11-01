@@ -39,7 +39,7 @@ export default function NationalLedger({ onNavigate, onSelectTeam, teams = mockT
           </div>
           <button
             onClick={() => onNavigate('leaderboard')}
-            className="text-xs text-[#00966e] hover:underline font-semibold cursor-pointer inline-flex items-center gap-1"
+            className="text-xs text-[#00966e] hover:underline font-semibold cursor-pointer inline-flex items-center gap-1 whitespace-nowrap shrink-0"
           >
             <span>{t.hub.fullTable}</span>
             <ArrowRight className="w-3 h-3" />

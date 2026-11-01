@@ -96,7 +96,7 @@ export default function CompetitionsTable({ onNavigate }) {
                     href={evt.url}
                     target="_blank"
                     rel="noreferrer"
-                    className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded border border-[#e4e4e7] dark:border-[#222632] hover:bg-white dark:hover:bg-[#13161f] text-[#18181b] dark:text-[#ededef] text-xs font-medium transition-colors"
+                    className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded border border-[#e4e4e7] dark:border-[#222632] hover:bg-white dark:hover:bg-[#13161f] text-[#18181b] dark:text-[#ededef] text-xs font-medium transition-colors whitespace-nowrap shrink-0"
                   >
                     <span>{t.common.website}</span>
                     <ExternalLink className="w-3 h-3 text-[#64646e] dark:text-[#8a8a93]" />

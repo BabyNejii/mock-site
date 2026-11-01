@@ -11,7 +11,7 @@ export default function LfgView({ lfgPosts, onOpenPostLfg }) {
   const postTypes = [
     { id: 'All', label: lang === 'bg' ? 'Всички' : 'All' },
     { id: 'Looking for Squad', label: lang === 'bg' ? 'Търся отбор' : 'Looking for Squad' },
-    { id: 'Squad Recruiting', label: lang === 'bg' ? 'Отбор търси съотборници' : 'Squad Recruiting' },
+    { id: 'Squad Recruiting', label: lang === 'bg' ? 'Отбори търсят' : 'Squad Recruiting' },
   ];
 
   const filteredPosts = lfgPosts.filter((post) => {
@@ -75,7 +75,7 @@ export default function LfgView({ lfgPosts, onOpenPostLfg }) {
 
             <button
               onClick={onOpenPostLfg}
-              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-md bg-[#00966e] hover:bg-[#00825f] text-white text-xs font-semibold shadow-xs transition-colors cursor-pointer shrink-0"
+              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-md bg-[#00966e] hover:bg-[#00825f] text-white text-xs font-semibold shadow-xs transition-colors cursor-pointer shrink-0 whitespace-nowrap"
             >
               <Plus className="w-3.5 h-3.5" />
               <span>{lang === 'bg' ? 'Публикувай обява' : 'Create Listing'}</span>
@@ -92,7 +92,7 @@ export default function LfgView({ lfgPosts, onOpenPostLfg }) {
             <button
               key={type.id}
               onClick={() => setFilterType(type.id)}
-              className={`px-2.5 py-1 rounded text-xs font-medium transition-colors cursor-pointer ${
+              className={`px-2.5 py-1 rounded text-xs font-medium transition-colors cursor-pointer whitespace-nowrap shrink-0 ${
                 filterType === type.id
                   ? 'bg-[#18181b] text-white dark:bg-[#ededef] dark:text-[#0c0e12]'
                   : 'border border-[#e4e4e7] dark:border-[#222632] bg-transparent text-[#64646e] dark:text-[#8a8a93] hover:text-[#18181b] dark:hover:text-[#ededef]'

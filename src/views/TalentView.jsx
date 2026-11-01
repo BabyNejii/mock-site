@@ -119,7 +119,7 @@ export default function TalentView() {
 
                   <button
                     onClick={() => handleSimulateApply(job.id)}
-                    className={`inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded text-xs font-semibold transition-colors cursor-pointer shrink-0 ${
+                    className={`inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded text-xs font-semibold transition-colors cursor-pointer shrink-0 whitespace-nowrap ${
                       hasApplied
                         ? 'border border-[#00966e] bg-[#00966e]/10 text-[#00966e]'
                         : 'bg-[#00966e] hover:bg-[#00825f] text-white shadow-xs'
@@ -132,7 +132,7 @@ export default function TalentView() {
                       </>
                     ) : (
                       <>
-                        <span>{lang === 'bg' ? 'Кандидатствай с CTF профил' : 'Apply via CTF Profile'}</span>
+                        <span>{lang === 'bg' ? 'Кандидатствай' : 'Apply via CTF Profile'}</span>
                         <ExternalLink className="w-3 h-3" />
                       </>
                     )}

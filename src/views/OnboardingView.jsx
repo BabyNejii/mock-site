@@ -80,14 +80,14 @@ export default function OnboardingView() {
             >
               <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
                 <div className="flex items-center gap-2">
-                  <span className="px-2 py-0.5 rounded text-[11px] font-mono font-bold bg-[#00966e]/10 text-[#00966e] border border-[#00966e]/20">
+                  <span className="px-2 py-0.5 rounded text-[11px] font-mono font-bold bg-[#00966e]/10 text-[#00966e] border border-[#00966e]/20 whitespace-nowrap shrink-0">
                     {lang === 'bg' ? `ЕТАП ${stage.step}` : `STAGE ${stage.step}`}
                   </span>
                   <h3 className="text-sm sm:text-base font-bold text-[#18181b] dark:text-[#ededef]">
                     {stage.title}
                   </h3>
                 </div>
-                <span className="text-xs font-mono text-[#64646e] dark:text-[#8a8a93]">
+                <span className="text-xs font-mono text-[#64646e] dark:text-[#8a8a93] whitespace-nowrap shrink-0">
                   {stage.timeframe}
                 </span>
               </div>

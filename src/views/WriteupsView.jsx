@@ -84,7 +84,7 @@ export default function WriteupsView({ onSelectWriteup }) {
             <button
               key={opt.id}
               onClick={() => setSelectedCategory(opt.id)}
-              className={`px-2.5 py-1 rounded text-xs font-medium transition-colors cursor-pointer ${
+              className={`px-2.5 py-1 rounded text-xs font-medium transition-colors cursor-pointer whitespace-nowrap shrink-0 ${
                 selectedCategory === opt.id
                   ? 'bg-[#18181b] text-white dark:bg-[#ededef] dark:text-[#0c0e12]'
                   : 'border border-[#e4e4e7] dark:border-[#222632] bg-transparent text-[#64646e] dark:text-[#8a8a93] hover:text-[#18181b] dark:hover:text-[#ededef]'
