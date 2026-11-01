@@ -1,10 +1,12 @@
 import React from 'react';
 import { Trophy, ExternalLink, ArrowRight } from 'lucide-react';
 import { mockTeams } from '../../data/teams';
+import { useLanguage } from '../../context/useLanguage';
 
 export default function NationalLedger({ onNavigate, onSelectTeam, teams = mockTeams }) {
+  const { t } = useLanguage();
   const sortedTeams = [...teams].sort((a, b) => (b.points2024 || 0) - (a.points2024 || 0));
-  const maxScore = Math.max(...sortedTeams.map((t) => t.points2024 || 0), 1);
+  const maxScore = Math.max(...sortedTeams.map((item) => item.points2024 || 0), 1);
 
   const getRankMedallion = (rank) => {
     if (rank === 1) {
@@ -28,18 +30,18 @@ export default function NationalLedger({ onNavigate, onSelectTeam, teams = mockT
             <div className="flex items-center gap-2">
               <Trophy className="w-4 h-4 text-amber-500" />
               <h2 className="text-sm font-bold text-[#18181b] dark:text-[#ededef]">
-                National CTFtime Standings
+                {t.hub.standingsTitle}
               </h2>
             </div>
             <p className="text-[11px] text-[#64646e] dark:text-[#8a8a93]">
-              Verified Bulgarian teams registered on CTFtime.org
+              {t.hub.standingsSubtitle}
             </p>
           </div>
           <button
             onClick={() => onNavigate('leaderboard')}
             className="text-xs text-[#00966e] hover:underline font-semibold cursor-pointer inline-flex items-center gap-1"
           >
-            <span>Full table</span>
+            <span>{t.hub.fullTable}</span>
             <ArrowRight className="w-3 h-3" />
           </button>
         </div>
@@ -92,10 +94,10 @@ export default function NationalLedger({ onNavigate, onSelectTeam, teams = mockT
 
                   <div className="text-right shrink-0 space-y-0.5">
                     <span className="inline-block text-xs font-mono tabular-nums font-bold text-[#00966e] bg-[#00966e]/10 px-2 py-0.5 rounded border border-[#00966e]/20">
-                      {team.points2024.toFixed(2)} pts
+                      {team.points2024.toFixed(2)} {t.common.points}
                     </span>
                     <span className="block text-[11px] font-mono tabular-nums text-[#64646e] dark:text-[#8a8a93]">
-                      World #{team.globalRank}
+                      {t.common.worldRank} #{team.globalRank}
                     </span>
                   </div>
                 </div>
@@ -118,7 +120,7 @@ export default function NationalLedger({ onNavigate, onSelectTeam, teams = mockT
           onClick={() => onNavigate('leaderboard')}
           className="text-xs text-[#64646e] dark:text-[#8a8a93] hover:text-[#18181b] dark:hover:text-[#ededef] font-medium transition-colors cursor-pointer"
         >
-          View all registered teams, historical points, and member statistics
+          {t.hub.fullTable}
         </button>
       </div>
     </div>

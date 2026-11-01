@@ -1,8 +1,10 @@
 import React from 'react';
 import { Calendar, ExternalLink, ArrowRight, MapPin, Globe } from 'lucide-react';
 import { mockEvents } from '../../data/ctfs';
+import { useLanguage } from '../../context/useLanguage';
 
 export default function CompetitionsTable({ onNavigate }) {
+  const { lang, t } = useLanguage();
   const events = mockEvents.slice(0, 4);
 
   const getTypeBadgeClass = (type) => {
@@ -24,18 +26,18 @@ export default function CompetitionsTable({ onNavigate }) {
             <div className="flex items-center gap-2">
               <Calendar className="w-4 h-4 text-[#00966e]" />
               <h2 className="text-sm font-bold text-[#18181b] dark:text-[#ededef]">
-                Upcoming Competitions
+                {t.hub.upcomingEvents}
               </h2>
             </div>
             <p className="text-[11px] text-[#64646e] dark:text-[#8a8a93]">
-              Bulgarian domestic events and key European qualifier tournaments
+              {t.hub.eventsSubtitle}
             </p>
           </div>
           <button
             onClick={() => onNavigate('calendar')}
             className="text-xs text-[#00966e] hover:underline font-semibold cursor-pointer inline-flex items-center gap-1"
           >
-            <span>All events</span>
+            <span>{t.hub.allEvents}</span>
             <ArrowRight className="w-3 h-3" />
           </button>
         </div>
@@ -66,34 +68,37 @@ export default function CompetitionsTable({ onNavigate }) {
                     >
                       {evt.type}
                     </span>
-                    <span className="text-[#64646e] dark:text-[#8a8a93] text-[11px] inline-flex items-center gap-1">
-                      {isLocal ? <MapPin className="w-3 h-3 text-[#00966e]" /> : <Globe className="w-3 h-3 opacity-60" />}
+                    <span className="text-[#64646e] dark:text-[#8a8a93] text-xs flex items-center gap-1">
+                      {isLocal ? (
+                        <MapPin className="w-3 h-3 text-[#00966e]" />
+                      ) : (
+                        <Globe className="w-3 h-3 text-[#64646e] dark:text-[#8a8a93]" />
+                      )}
                       <span>{evt.location}</span>
                     </span>
                   </div>
 
                   <h3
                     onClick={() => onNavigate('calendar')}
-                    className="text-xs sm:text-sm font-semibold text-[#18181b] dark:text-[#ededef] group-hover:text-[#00966e] transition-colors cursor-pointer truncate"
+                    className="text-xs sm:text-sm font-semibold text-[#18181b] dark:text-[#ededef] group-hover:text-[#00966e] transition-colors cursor-pointer"
                   >
                     {evt.title}
                   </h3>
 
-                  <div className="text-[11px] text-[#64646e] dark:text-[#8a8a93] flex flex-wrap gap-x-3 gap-y-0.5 font-mono">
-                    <span>Format: {evt.format}</span>
-                    <span className="text-zinc-300 dark:text-zinc-700">•</span>
-                    <span>Weight: {evt.weight}</span>
+                  <div className="text-[11px] text-[#64646e] dark:text-[#8a8a93] flex flex-wrap gap-x-3 gap-y-0.5">
+                    <span>{lang === 'bg' ? 'Формат:' : 'Format:'} {evt.format}</span>
+                    <span className="font-mono">{lang === 'bg' ? 'Тежест:' : 'Weight:'} {evt.weight}</span>
                   </div>
                 </div>
 
-                <div className="shrink-0 flex items-center gap-2 pt-1 sm:pt-0">
+                <div className="shrink-0 flex items-center gap-2">
                   <a
                     href={evt.url}
                     target="_blank"
                     rel="noreferrer"
-                    className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-md border border-[#e4e4e7] dark:border-[#222632] hover:bg-[#f3f3f5] dark:hover:bg-[#0c0e12] text-[#18181b] dark:text-[#ededef] text-xs font-medium transition-colors"
+                    className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded border border-[#e4e4e7] dark:border-[#222632] hover:bg-white dark:hover:bg-[#13161f] text-[#18181b] dark:text-[#ededef] text-xs font-medium transition-colors"
                   >
-                    <span>Website</span>
+                    <span>{t.common.website}</span>
                     <ExternalLink className="w-3 h-3 text-[#64646e] dark:text-[#8a8a93]" />
                   </a>
                 </div>
@@ -108,7 +113,7 @@ export default function CompetitionsTable({ onNavigate }) {
           onClick={() => onNavigate('calendar')}
           className="text-xs text-[#64646e] dark:text-[#8a8a93] hover:text-[#18181b] dark:hover:text-[#ededef] font-medium transition-colors cursor-pointer"
         >
-          See full 2026–2027 competitive calendar with .ics export
+          {t.hub.allEvents}
         </button>
       </div>
     </div>

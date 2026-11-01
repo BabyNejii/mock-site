@@ -1,9 +1,12 @@
 import React from 'react';
 import { ExternalLink } from 'lucide-react';
+import { useLanguage } from '../context/useLanguage';
 
 export default function Footer({ onNavigate }) {
+  const { lang, t } = useLanguage();
+
   return (
-    <footer className="border-t border-[#e4e4e7] dark:border-[#242428] bg-white dark:bg-[#131315] text-[#64646e] dark:text-[#8a8a93] text-xs transition-colors">
+    <footer className="border-t border-[#e4e4e7] dark:border-[#222632] bg-white dark:bg-[#13161f] text-[#64646e] dark:text-[#8a8a93] text-xs transition-colors">
       {/* Bulgarian Tricolor Ribbon */}
       <div className="h-[2px] w-full flex">
         <div className="flex-1 bg-white dark:bg-[#ededef]" />
@@ -19,14 +22,16 @@ export default function Footer({ onNavigate }) {
               ctf.bg
             </span>
             <p className="text-xs text-[#64646e] dark:text-[#8a8a93] leading-relaxed">
-              Bulgarian competitive cybersecurity registry, event calendar, and student squad directory.
+              {lang === 'bg'
+                ? 'Национален регистър за състезателна киберсигурност, турнирен календар и студентски отбори в България.'
+                : 'Bulgarian competitive cybersecurity registry, event calendar, and student squad directory.'}
             </p>
           </div>
 
           {/* Directory Navigation */}
           <div>
             <h3 className="text-xs font-semibold text-[#18181b] dark:text-[#ededef] mb-3">
-              Directory
+              {lang === 'bg' ? 'Навигация' : 'Directory'}
             </h3>
             <ul className="space-y-2 text-xs">
               <li>
@@ -34,7 +39,7 @@ export default function Footer({ onNavigate }) {
                   onClick={() => onNavigate('calendar')}
                   className="hover:text-[#00966e] transition-colors cursor-pointer"
                 >
-                  Competitions Calendar
+                  {t.nav.calendar}
                 </button>
               </li>
               <li>
@@ -42,7 +47,7 @@ export default function Footer({ onNavigate }) {
                   onClick={() => onNavigate('leaderboard')}
                   className="hover:text-[#00966e] transition-colors cursor-pointer"
                 >
-                  National Standings
+                  {t.nav.leaderboard}
                 </button>
               </li>
               <li>
@@ -50,7 +55,7 @@ export default function Footer({ onNavigate }) {
                   onClick={() => onNavigate('lfg')}
                   className="hover:text-[#00966e] transition-colors cursor-pointer"
                 >
-                  Team Finder Board
+                  {t.nav.lfg}
                 </button>
               </li>
               <li>
@@ -58,7 +63,7 @@ export default function Footer({ onNavigate }) {
                   onClick={() => onNavigate('writeups')}
                   className="hover:text-[#00966e] transition-colors cursor-pointer"
                 >
-                  Writeup Vault
+                  {t.nav.writeups}
                 </button>
               </li>
             </ul>
@@ -67,7 +72,7 @@ export default function Footer({ onNavigate }) {
           {/* Bulgarian Ecosystem */}
           <div>
             <h3 className="text-xs font-semibold text-[#18181b] dark:text-[#ededef] mb-3">
-              Bulgarian Ecosystem
+              {lang === 'bg' ? 'Българска екосистема' : 'Bulgarian Ecosystem'}
             </h3>
             <ul className="space-y-2 text-xs">
               <li>
@@ -109,27 +114,29 @@ export default function Footer({ onNavigate }) {
           {/* Community */}
           <div>
             <h3 className="text-xs font-semibold text-[#18181b] dark:text-[#ededef] mb-3">
-              Community Discord
+              {lang === 'bg' ? 'Общност Discord' : 'Community Discord'}
             </h3>
             <p className="text-xs text-[#64646e] dark:text-[#8a8a93] mb-3 leading-relaxed">
-              Coordinate team formation, discuss challenge PoCs, and practice with university competitors across Bulgaria.
+              {lang === 'bg'
+                ? 'Координирайте сформирането на отбори, обсъждайте решения на задачи и тренирайте със състезатели от българските университети.'
+                : 'Coordinate team formation, discuss challenge PoCs, and practice with university competitors across Bulgaria.'}
             </p>
             <a
               href="https://discord.gg"
               target="_blank"
               rel="noreferrer"
-              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-md border border-[#e4e4e7] dark:border-[#242428] hover:bg-[#f3f3f5] dark:hover:bg-[#0c0c0e] text-[#18181b] dark:text-[#ededef] text-xs font-medium transition-colors"
+              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-md border border-[#e4e4e7] dark:border-[#222632] hover:bg-[#f3f3f5] dark:hover:bg-[#0c0e12] text-[#18181b] dark:text-[#ededef] text-xs font-medium transition-colors"
             >
-              <span>Join Discord Server</span>
+              <span>{lang === 'bg' ? 'Присъедини се към Discord' : 'Join Discord Server'}</span>
               <ExternalLink className="w-3 h-3" />
             </a>
           </div>
         </div>
 
         {/* Bottom Colophon */}
-        <div className="pt-4 border-t border-[#e4e4e7] dark:border-[#242428] flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 text-[11px] text-[#64646e] dark:text-[#8a8a93]">
-          <p>© 2026–2027 ctf.bg — Independent Bulgarian community registry</p>
-          <p>TU Sofia, Sofia University (FMI), UNWE, NBU</p>
+        <div className="pt-4 border-t border-[#e4e4e7] dark:border-[#222632] flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 text-[11px] text-[#64646e] dark:text-[#8a8a93]">
+          <p>© 2026–2027 ctf.bg — {lang === 'bg' ? 'Независим български общностен регистър' : 'Independent Bulgarian community registry'}</p>
+          <p>ТУ-София, СУ (ФМИ), УНСС, НБУ</p>
         </div>
       </div>
     </footer>

@@ -1,17 +1,19 @@
 import React, { useState } from 'react';
 import { Sun, Moon, Menu, X, Plus } from 'lucide-react';
+import { useLanguage } from '../context/useLanguage';
 
 export default function Navbar({ activeTab, setActiveTab, isDark, toggleTheme, onOpenRegisterTeam }) {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const { lang, toggleLang, t } = useLanguage();
 
   const navItems = [
-    { id: 'hub', label: 'Hub' },
-    { id: 'calendar', label: 'Events' },
-    { id: 'leaderboard', label: 'Standings' },
-    { id: 'lfg', label: 'Team Finder' },
-    { id: 'writeups', label: 'Writeups' },
-    { id: 'onboarding', label: 'Get Started' },
-    { id: 'talent', label: 'Careers' },
+    { id: 'hub', label: t.nav.hub },
+    { id: 'calendar', label: t.nav.calendar },
+    { id: 'leaderboard', label: t.nav.leaderboard },
+    { id: 'lfg', label: t.nav.lfg },
+    { id: 'writeups', label: t.nav.writeups },
+    { id: 'onboarding', label: t.nav.onboarding },
+    { id: 'talent', label: t.nav.talent },
   ];
 
   const handleTabClick = (id) => {
@@ -30,7 +32,7 @@ export default function Navbar({ activeTab, setActiveTab, isDark, toggleTheme, o
 
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
         <div className="flex items-center justify-between h-14">
-          {/* Logo - Handcrafted, uniform text, no single-word colored span */}
+          {/* Logo */}
           <button
             onClick={() => handleTabClick('hub')}
             className="flex items-center gap-3 text-left cursor-pointer group"
@@ -40,7 +42,7 @@ export default function Navbar({ activeTab, setActiveTab, isDark, toggleTheme, o
                 ctf.bg
               </span>
               <span className="text-[11px] font-medium text-[#64646e] dark:text-[#8a8a93] hidden sm:inline">
-                Bulgarian CTF Registry
+                {t.nav.tagline}
               </span>
             </div>
           </button>
@@ -67,6 +69,22 @@ export default function Navbar({ activeTab, setActiveTab, isDark, toggleTheme, o
 
           {/* Right Action Tools */}
           <div className="flex items-center gap-2">
+            {/* Language Toggle Switch (Bulgarian default) */}
+            <button
+              onClick={toggleLang}
+              aria-label="Toggle language"
+              className="px-2 py-1 rounded-md border border-[#e4e4e7] dark:border-[#242428] text-xs font-mono font-semibold hover:bg-[#f3f3f5] dark:hover:bg-[#131315] transition-colors cursor-pointer flex items-center gap-1"
+              title={lang === 'bg' ? 'Switch to English' : 'Превключи на Български'}
+            >
+              <span className={lang === 'bg' ? 'text-[#00966e] font-bold' : 'text-[#64646e] dark:text-[#8a8a93]'}>
+                BG
+              </span>
+              <span className="text-zinc-300 dark:text-zinc-700 text-[10px]">/</span>
+              <span className={lang === 'en' ? 'text-[#00966e] font-bold' : 'text-[#64646e] dark:text-[#8a8a93]'}>
+                EN
+              </span>
+            </button>
+
             {/* Theme Toggle Button */}
             <button
               onClick={toggleTheme}
@@ -83,7 +101,7 @@ export default function Navbar({ activeTab, setActiveTab, isDark, toggleTheme, o
               className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-md bg-[#00966e] hover:bg-[#00825f] text-white text-xs font-semibold shadow-xs transition-colors cursor-pointer"
             >
               <Plus className="w-3.5 h-3.5" />
-              <span>Register Team</span>
+              <span>{t.nav.registerTeam}</span>
             </button>
 
             {/* Mobile Hamburger */}

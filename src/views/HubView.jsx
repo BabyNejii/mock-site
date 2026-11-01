@@ -4,8 +4,10 @@ import CompetitionsTable from '../components/hub/CompetitionsTable';
 import NationalLedger from '../components/hub/NationalLedger';
 import CampusNotice from '../components/hub/CampusNotice';
 import { mockNews } from '../data/news';
+import { useLanguage } from '../context/useLanguage';
 
 export default function HubView({ onNavigate, onSelectTeam }) {
+  const { t } = useLanguage();
   // Target: Security BSides Sofia 2027 CTF
   const targetDate = new Date('2027-03-27T09:00:00Z').getTime();
   const [timeLeft, setTimeLeft] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 });
@@ -45,19 +47,19 @@ export default function HubView({ onNavigate, onSelectTeam }) {
       <CampusNotice onNavigate={onNavigate} />
 
       {/* National Scene Bulletins */}
-      <section className="rounded-lg border border-[#e4e4e7] dark:border-[#242428] bg-white dark:bg-[#131315] p-6 shadow-xs">
-        <div className="pb-3 border-b border-[#e4e4e7] dark:border-[#242428] flex items-center justify-between">
+      <section className="rounded-xl border border-[#e4e4e7] dark:border-[#222632] bg-white dark:bg-[#13161f] p-6 shadow-xs">
+        <div className="pb-3 border-b border-[#e4e4e7] dark:border-[#222632] flex items-center justify-between">
           <div>
             <h2 className="text-sm font-bold text-[#18181b] dark:text-[#ededef]">
-              National Dispatches & Announcements
+              {t.hub.newsTitle}
             </h2>
             <p className="text-[11px] text-[#64646e] dark:text-[#8a8a93]">
-              Updates from CSCB, university faculties, and domestic community organizers
+              {t.hub.newsSubtitle}
             </p>
           </div>
         </div>
 
-        <div className="divide-y divide-[#e4e4e7] dark:divide-[#242428]">
+        <div className="divide-y divide-[#e4e4e7] dark:divide-[#222632]">
           {mockNews.map((item) => (
             <div key={item.id} className="py-3.5 space-y-1">
               <div className="flex items-center gap-2">
