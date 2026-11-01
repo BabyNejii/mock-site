@@ -1,19 +1,32 @@
-# ctf.bg — Bulgarian Competitive Cybersecurity Hub
+# ctf.bg — Българският портал за състезателна киберсигурност
 
-Interactive web application mockup for `ctf.bg`, the central community hub, national ledger, and recruitment platform for competitive cybersecurity (CTF) in Bulgaria.
+Интерактивен прототип за `ctf.bg` — централен общностен портал, национално класиране и платформа за сформиране на отбори по състезателна киберсигурност (CTF) в България.
 
 ---
 
-## Proposed Site Sections
+## Предложени секции на сайта
+
+- **Начало (Hub / Общ преглед)**: Централно табло с фокус върху отбор номер едно в България в CTFtime, официалните квалификации за Европейското първенство (ECSC), обратно броене до BSides Sofia и новини от местната общност.
+- **Календар със състезания (Competitions Calendar)**: Единен график на присъствени събития в България (BSides Sofia в София Тех Парк), национални квалификации и големи международни турнири с директно изтегляне на `.ics` календарни събития.
+- **Национално класиране (Leaderboard)**: Класиране в реално време на регистрираните български отбори в CTFtime с официален рейтинг, позиции в световната ранглиста и статистика за сезона.
+- **Търсене на съотборници (Team Finder / LFG)**: Място за контакт между индивидуални състезатели и отбори, търсещи подкрепление в конкретни категории (Binary Exploitation, Web Security, Cryptography, Reverse Engineering, Forensics) с Discord координати.
+- **Университетска инициатива (Collegiate Varsity)**: Насочена програма в подкрепа на студенти от ТУ-София, СУ (ФМИ) и УНСС за организиране на официални университетски състави за участие в CTFtime.
+- **Архив с решения (Writeups Archive)**: База данни с подробни технически анализи, образователни материали и решения на предизвикателства от турнири, подготвени от български участници.
+- **Първи стъпки (Onboarding Roadmap)**: Пътна карта за начинаещи ученици и студенти с подбрани тренировъчни платформи, инструментариум и правила за отговорна практика.
+- **Кариерен борд (Careers & Talent)**: Обяви за работа и стажантски позиции, свързващи състезателния талант с български компании и лаборатории за киберсигурност.
+
+---
+
+## Proposed Site Sections (English)
 
 - **Hub (Overview)**: Central dashboard spotlighting Bulgaria’s #1 CTFtime team, official European Cybersecurity Challenge (ECSC) qualifiers, BSides Sofia countdown, and domestic bulletins.
-- **Competitions Calendar**: Consolidated schedule of domestic on-site events (BSides Sofia at Sofia Tech Park), national qualifiers, and major international online CTFs with direct `.ics` calendar sync.
-- **National Standings (Leaderboard)**: Live ranking ledger tracking verified Bulgarian squads registered on CTFtime with rating points, world percentiles, and historical season performance.
-- **Team Finder (LFG)**: Matchmaking board connecting solo players and squads looking for teammates across specific disciplines (Pwn, Web, Crypto, Rev, Forensics) with Discord handles.
-- **Collegiate Varsity Initiative**: Dedicated recruitment and roster coordination platform for computer science students at TU Sofia, Sofia University (FMI), and UNWE to field official CTFtime teams.
-- **Writeup Archive**: Searchable repository of technical challenge writeups, exploit code snippets, and post-competition solutions submitted by Bulgarian players.
-- **Get Started (Onboarding Roadmap)**: Guided step-by-step introduction to CTFs for high school and university students, featuring practice platforms, recommended toolchains, and legal infosec boundaries.
-- **Careers & Talent Board**: Targeted job and internship board connecting competitive hacking talent with cybersecurity firms and security research labs in Bulgaria.
+- **Competitions Calendar**: Consolidated schedule of domestic on-site events, national qualifiers, and major international online tournaments with direct `.ics` calendar sync.
+- **National Standings (Leaderboard)**: Live ranking ledger tracking verified Bulgarian squads registered on CTFtime with rating points, world percentiles, and season statistics.
+- **Team Finder (LFG)**: Matchmaking board connecting solo participants and squads looking for teammates across specific disciplines (Binary Analysis, Web Security, Cryptography, Reverse Engineering, Forensics).
+- **Collegiate Varsity Initiative**: Dedicated coordination platform for university students at TU Sofia, Sofia University (FMI), and UNWE to field official CTFtime teams.
+- **Writeup Archive**: Searchable repository of technical challenge writeups, educational walkthroughs, and solutions submitted by Bulgarian competitors.
+- **Get Started (Onboarding Roadmap)**: Guided step-by-step introduction to CTFs for students, featuring practice platforms, recommended toolchains, and responsible conduct guidelines.
+- **Careers & Talent Board**: Targeted job and internship directory connecting competitive cybersecurity talent with local industry partners and research labs.
 
 ---
 
