@@ -1,0 +1,52 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --font-sans: "Geist", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-mono: "Geist Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+}
+
+:root {
+  color-scheme: light;
+}
+
+.dark {
+  color-scheme: dark;
+}
+
+/* Atmospheric Ambient Background */
+body {
+  background-color: #f8f9fa;
+  background-image: radial-gradient(ellipse 80% 50% at 50% -10%, rgba(0, 150, 110, 0.05), transparent 70%);
+  background-attachment: fixed;
+}
+
+.dark body {
+  background-color: #0b0d11;
+  background-image: radial-gradient(ellipse 80% 50% at 50% -10%, rgba(0, 150, 110, 0.12), transparent 70%);
+  background-attachment: fixed;
+}
+
+/* Refined Scrollbars */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #d4d4d8;
+  border-radius: 9999px;
+}
+.dark ::-webkit-scrollbar-thumb {
+  background: #242428;
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #a1a1aa;
+}
+.dark ::-webkit-scrollbar-thumb:hover {
+  background: #383842;
+}

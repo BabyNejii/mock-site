@@ -1,0 +1,193 @@
+import React, { useState } from 'react';
+import { Search, Copy, Check, Plus, MessageSquare } from 'lucide-react';
+
+export default function LfgView({ lfgPosts, onOpenPostLfg }) {
+  const [copiedId, setCopiedId] = useState(null);
+  const [searchQuery, setSearchQuery] = useState('');
+  const [filterType, setFilterType] = useState('All');
+
+  const postTypes = ['All', 'Looking for Squad', 'Squad Recruiting'];
+
+  const filteredPosts = lfgPosts.filter((post) => {
+    const matchesFilter = filterType === 'All' || post.type.toLowerCase() === filterType.toLowerCase();
+    const matchesSearch =
+      (post.author && post.author.toLowerCase().includes(searchQuery.toLowerCase())) ||
+      (post.affiliation && post.affiliation.toLowerCase().includes(searchQuery.toLowerCase())) ||
+      post.role.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      post.targetEvent.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      post.description.toLowerCase().includes(searchQuery.toLowerCase());
+    return matchesFilter && matchesSearch;
+  });
+
+  const getAffiliationBadge = (affil) => {
+    if (affil.toLowerCase().includes('tu') || affil.toLowerCase().includes('technical')) {
+      return 'bg-blue-500/10 text-blue-600 dark:text-blue-400 border-blue-500/20';
+    }
+    if (affil.toLowerCase().includes('fmi') || affil.toLowerCase().includes('sofia university')) {
+      return 'bg-purple-500/10 text-purple-600 dark:text-purple-400 border-purple-500/20';
+    }
+    if (affil.toLowerCase().includes('unwe')) {
+      return 'bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border-emerald-500/20';
+    }
+    return 'bg-zinc-100 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-400 border-zinc-200 dark:border-zinc-700';
+  };
+
+  const handleCopyDiscord = (id, handle) => {
+    navigator.clipboard.writeText(handle);
+    setCopiedId(id);
+    setTimeout(() => setCopiedId(null), 2000);
+  };
+
+  return (
+    <div className="space-y-6">
+      {/* Header Panel */}
+      <div className="rounded-xl border border-[#e4e4e7] dark:border-[#242428] bg-white dark:bg-[#131315] p-6 shadow-xs transition-colors">
+        <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-4 pb-4 border-b border-[#e4e4e7] dark:border-[#242428]">
+          <div className="space-y-1">
+            <h1 className="text-xl sm:text-2xl font-bold tracking-tight text-[#18181b] dark:text-[#ededef]">
+              Team Finder Board
+            </h1>
+            <p className="text-xs sm:text-sm text-[#64646e] dark:text-[#8a8a93]">
+              Find teammates for BSides Sofia 2027, ECSC national qualifications, or weekend online competitions.
+            </p>
+          </div>
+
+          <div className="flex items-center gap-2">
+            {/* Search */}
+            <div className="relative">
+              <Search className="w-4 h-4 absolute left-3 top-2.5 text-[#64646e] dark:text-[#8a8a93]" />
+              <input
+                type="text"
+                placeholder="Search recruitment posts..."
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                className="pl-9 pr-3 py-1.5 rounded-md border border-[#e4e4e7] dark:border-[#242428] bg-[#f3f3f5] dark:bg-[#0c0c0e] text-[#18181b] dark:text-[#ededef] text-xs focus:outline-none focus:border-[#00966e] w-full sm:w-56"
+              />
+            </div>
+
+            <button
+              onClick={onOpenPostLfg}
+              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-md bg-[#00966e] hover:bg-[#00825f] text-white text-xs font-semibold shadow-xs transition-colors cursor-pointer shrink-0"
+            >
+              <Plus className="w-3.5 h-3.5" />
+              <span>Create Listing</span>
+            </button>
+          </div>
+        </div>
+
+        {/* Filter Bar */}
+        <div className="pt-3 flex flex-wrap items-center gap-1.5">
+          <span className="text-xs font-mono text-[#64646e] dark:text-[#8a8a93] mr-2">
+            FILTER:
+          </span>
+          {postTypes.map((type) => (
+            <button
+              key={type}
+              onClick={() => setFilterType(type)}
+              className={`px-2.5 py-1 rounded text-xs font-medium transition-colors cursor-pointer ${
+                filterType === type
+                  ? 'bg-[#18181b] text-white dark:bg-[#ededef] dark:text-[#0c0c0e]'
+                  : 'border border-[#e4e4e7] dark:border-[#242428] bg-transparent text-[#64646e] dark:text-[#8a8a93] hover:text-[#18181b] dark:hover:text-[#ededef]'
+              }`}
+            >
+              {type}
+            </button>
+          ))}
+        </div>
+      </div>
+
+      {/* University Focus Note */}
+      <div className="rounded-xl border border-[#e4e4e7] dark:border-[#242428] bg-[#f8f9fa] dark:bg-[#0c0c0e]/50 p-4 text-xs text-[#64646e] dark:text-[#8a8a93] space-y-1">
+        <span className="font-semibold text-[#18181b] dark:text-[#ededef] block">
+          Forming a campus squad at TU Sofia, FMI, or UNWE?
+        </span>
+        <p className="leading-relaxed">
+          Prior competitive experience is not required. Many students connect here to practice beginner tracks together on OverTheWire, PicoCTF, and PortSwigger before forming an official university roster.
+        </p>
+      </div>
+
+      {/* Structured Listings Feed */}
+      <div className="rounded-xl border border-[#e4e4e7] dark:border-[#242428] bg-white dark:bg-[#131315] divide-y divide-[#e4e4e7] dark:divide-[#242428] overflow-hidden">
+        {filteredPosts.length === 0 ? (
+          <div className="p-8 text-center text-xs text-[#64646e] dark:text-[#8a8a93]">
+            No listings found matching your search.
+          </div>
+        ) : (
+          filteredPosts.map((post) => (
+            <div
+              key={post.id}
+              className="p-5 hover:bg-[#f3f3f5] dark:hover:bg-[#18181c] transition-colors space-y-3"
+            >
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+                <div className="flex flex-wrap items-center gap-2">
+                  <span className="px-2 py-0.5 rounded text-[11px] font-mono font-medium bg-[#00966e]/10 text-[#00966e] border border-[#00966e]/20">
+                    {post.type}
+                  </span>
+                  <span className="text-sm font-bold text-[#18181b] dark:text-[#ededef]">
+                    {post.author}
+                  </span>
+                  <span className={`text-[11px] font-mono font-medium px-2 py-0.5 rounded border ${getAffiliationBadge(post.affiliation)}`}>
+                    {post.affiliation}
+                  </span>
+                </div>
+
+                <span className="font-mono text-[11px] text-[#64646e] dark:text-[#8a8a93]">
+                  {post.postedAt}
+                </span>
+              </div>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs">
+                <div>
+                  <span className="text-[#64646e] dark:text-[#8a8a93]">Target: </span>
+                  <span className="font-medium text-[#18181b] dark:text-[#ededef]">{post.targetEvent}</span>
+                </div>
+                <div>
+                  <span className="text-[#64646e] dark:text-[#8a8a93]">Focus: </span>
+                  <span className="font-medium text-[#18181b] dark:text-[#ededef]">{post.role}</span>
+                </div>
+              </div>
+
+              <p className="text-xs sm:text-sm text-[#64646e] dark:text-[#8a8a93] leading-relaxed">
+                {post.description}
+              </p>
+
+              <div className="flex flex-wrap items-center justify-between gap-3 pt-1">
+                <div className="flex flex-wrap gap-1.5">
+                  {post.tags.map((tag, i) => (
+                    <span
+                      key={i}
+                      className="px-2 py-0.5 rounded text-[10px] font-mono bg-[#f3f3f5] dark:bg-[#0c0c0e] text-[#64646e] dark:text-[#8a8a93] border border-[#e4e4e7] dark:border-[#242428]"
+                    >
+                      #{tag}
+                    </span>
+                  ))}
+                  <span className="text-xs text-[#64646e] dark:text-[#8a8a93] self-center ml-1">
+                    Level: <strong className="text-[#18181b] dark:text-[#ededef] font-medium">{post.experienceLevel}</strong>
+                  </span>
+                </div>
+
+                <button
+                  onClick={() => handleCopyDiscord(post.id, post.discordHandle)}
+                  className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded border border-[#e4e4e7] dark:border-[#242428] hover:bg-[#f3f3f5] dark:hover:bg-[#0c0c0e] text-[#18181b] dark:text-[#ededef] text-xs font-mono transition-colors cursor-pointer"
+                >
+                  {copiedId === post.id ? (
+                    <>
+                      <Check className="w-3.5 h-3.5 text-[#00966e]" />
+                      <span className="text-[#00966e] font-semibold">Copied Discord Handle</span>
+                    </>
+                  ) : (
+                    <>
+                      <MessageSquare className="w-3.5 h-3.5 text-[#64646e] dark:text-[#8a8a93]" />
+                      <span>{post.discordHandle}</span>
+                      <Copy className="w-3 h-3 text-[#64646e] dark:text-[#8a8a93]" />
+                    </>
+                  )}
+                </button>
+              </div>
+            </div>
+          ))
+        )}
+      </div>
+    </div>
+  );
+}

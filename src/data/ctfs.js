@@ -1,0 +1,62 @@
+export const mockEvents = [
+  {
+    id: 'bsides-sofia-2027',
+    title: 'Security BSides Sofia 2027 CTF',
+    organizer: 'BSides Sofia & CSF.BG',
+    type: 'Local (Sofia)',
+    format: 'Jeopardy & Hardware',
+    location: 'Sofia Tech Park',
+    startDate: '2027-03-27T09:00:00Z',
+    endDate: '2027-03-28T18:00:00Z',
+    weight: '32.50',
+    status: 'Upcoming',
+    tags: ['In-person', 'Sofia', 'Hardware', 'Web', 'Pwn'],
+    url: 'https://securitybsides.bg',
+    description: 'Bulgaria’s community infosec conference CTF held at Sofia Tech Park. Features on-site challenge tracks, badge hacking, and a hardware security village.'
+  },
+  {
+    id: 'ecsc-bg-quals-2027',
+    title: 'ECSC Bulgaria National Qualifiers 2027',
+    organizer: 'Cybersecurity Challenge Bulgaria (CSCB)',
+    type: 'National Selection',
+    format: 'Jeopardy (Individual)',
+    location: 'Online',
+    startDate: '2027-04-10T10:00:00Z',
+    endDate: '2027-04-12T18:00:00Z',
+    weight: 'National Team',
+    status: 'Upcoming',
+    tags: ['Ages 16-25', 'Bulgaria', 'Team Selection'],
+    url: 'https://ecsc-bg.eu',
+    description: 'Annual open qualifiers organized by Cybersecurity Challenge Bulgaria (ecsc-bg.eu) to select the 10-player official Team Bulgaria roster for the European Cybersecurity Challenge (ECSC).'
+  },
+  {
+    id: 'defcon-quals-2027',
+    title: 'DEF CON CTF Qualifiers 2027',
+    organizer: 'Nautilus Institute',
+    type: 'Global Major',
+    format: 'Jeopardy',
+    location: 'Online',
+    startDate: '2027-05-22T00:00:00Z',
+    endDate: '2027-05-24T00:00:00Z',
+    weight: '100.00',
+    status: 'Upcoming',
+    tags: ['World Major', 'Binary Exploitation', 'Crypto'],
+    url: 'https://ctftime.org/event/defcon-quals-2027',
+    description: 'The premier worldwide qualifier. Top international teams battle for spots at the DEF CON finals in Las Vegas.'
+  },
+  {
+    id: 'openfest-cyber-2027',
+    title: 'OpenFest Security Village CTF 2027',
+    organizer: 'OpenFest Sofia',
+    type: 'Local (Sofia)',
+    format: 'Jeopardy',
+    location: 'Sofia, Bulgaria',
+    startDate: '2027-10-30T10:00:00Z',
+    endDate: '2027-10-31T17:00:00Z',
+    weight: '10.00',
+    status: 'Upcoming',
+    tags: ['In-person', 'Open Source', 'Community'],
+    url: 'https://openfest.org',
+    description: 'Free and open-source software community conference featuring an open infosec village and beginner-friendly challenges.'
+  }
+];
