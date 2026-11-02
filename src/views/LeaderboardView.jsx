@@ -25,7 +25,7 @@ export default function LeaderboardView({ teams, onSelectTeam, onOpenRegisterTea
     if (rank === 3) {
       return 'bg-amber-700/10 text-amber-700 dark:text-amber-500/90 border-amber-700/25 font-semibold';
     }
-    return 'bg-[#f3f3f5] dark:bg-[#14161d] text-[#64646e] dark:text-[#8a8a93] border-[#e4e4e7] dark:border-[#222632] font-mono';
+    return 'bg-[#f3f3f5] dark:bg-[#14161d] text-[#64646e] dark:text-[#8a8a93] border-[#d6dae1] dark:border-[#292f42] font-mono';
   };
 
   const getSpecialtyBadge = (spec) => {
@@ -47,15 +47,15 @@ export default function LeaderboardView({ teams, onSelectTeam, onOpenRegisterTea
   return (
     <div className="space-y-6">
       {/* Header */}
-      <div className="rounded-xl border border-[#e4e4e7] dark:border-[#222632] bg-white dark:bg-[#13161f] p-6 shadow-xs transition-colors">
-        <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-4 pb-4 border-b border-[#e4e4e7] dark:border-[#222632]">
+      <div className="rounded-xl border border-[#d6dae1] dark:border-[#292f42] bg-white dark:bg-[#1a1e2b] p-6 shadow-xs transition-colors">
+        <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-4 pb-4 border-b border-[#d6dae1] dark:border-[#292f42]">
           <div className="space-y-1">
             <h1 className="text-xl sm:text-2xl font-bold tracking-tight text-[#18181b] dark:text-[#ededef]">
-              {lang === 'bg' ? 'Национално класиране в CTFtime' : 'Bulgarian CTFtime Standings'}
+              {lang === 'bg' ? 'Национална класация в CTFtime' : 'Bulgarian CTFtime Standings'}
             </h1>
             <p className="text-xs sm:text-sm text-[#64646e] dark:text-[#8a8a93]">
               {lang === 'bg'
-                ? 'Официален национален рейтинг в CTFtime.org. Точките отразяват класирания в потвърдени международни турнири.'
+                ? 'Официален национален рейтинг в CTFtime.org. Точките отразяват участия в потвърдени международни турнири.'
                 : 'Country ratings registered on CTFtime.org. Points reflect verified international competition submissions.'}
             </p>
           </div>
@@ -69,7 +69,7 @@ export default function LeaderboardView({ teams, onSelectTeam, onOpenRegisterTea
                 placeholder={lang === 'bg' ? 'Търсене на отбор или университет...' : 'Search team or university...'}
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="pl-9 pr-3 py-1.5 rounded-md border border-[#e4e4e7] dark:border-[#222632] bg-[#f3f3f5] dark:bg-[#0c0e12] text-[#18181b] dark:text-[#ededef] text-xs focus:outline-none focus:border-[#00966e] w-full sm:w-56"
+                className="pl-9 pr-3 py-1.5 rounded-md border border-[#d6dae1] dark:border-[#292f42] bg-[#f3f3f5] dark:bg-[#131620] text-[#18181b] dark:text-[#ededef] text-xs focus:outline-none focus:border-[#00966e] w-full sm:w-56"
               />
             </div>
 
@@ -100,11 +100,11 @@ export default function LeaderboardView({ teams, onSelectTeam, onOpenRegisterTea
       </div>
 
       {/* Standings Table */}
-      <div className="rounded-xl border border-[#e4e4e7] dark:border-[#222632] bg-white dark:bg-[#13161f] shadow-xs overflow-hidden">
+      <div className="rounded-xl border border-[#d6dae1] dark:border-[#292f42] bg-white dark:bg-[#1a1e2b] shadow-xs overflow-hidden">
         <div className="overflow-x-auto">
           <table className="w-full text-left border-collapse text-xs">
             <thead>
-              <tr className="border-b border-[#e4e4e7] dark:border-[#222632] bg-[#f8f9fa] dark:bg-[#0f1117] text-[#64646e] dark:text-[#8a8a93] font-medium whitespace-nowrap">
+              <tr className="border-b border-[#d6dae1] dark:border-[#292f42] bg-[#f0f3f6] dark:bg-[#141722] text-[#64646e] dark:text-[#8a8a93] font-medium whitespace-nowrap">
                 <th className="py-3 px-4 w-14 text-center font-mono">{lang === 'bg' ? 'Ранг' : 'Rank'}</th>
                 <th className="py-3 px-4">{lang === 'bg' ? 'Отбор' : 'Squad'}</th>
                 <th className="py-3 px-4">{lang === 'bg' ? 'Фокус дисциплини' : 'Focus Disciplines'}</th>

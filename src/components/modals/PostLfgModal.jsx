@@ -40,9 +40,9 @@ export default function PostLfgModal({ isOpen, onClose, onPostSuccess }) {
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-xs">
-      <div className="w-full max-w-md rounded-lg border border-[#e4e4e7] dark:border-[#242428] bg-white dark:bg-[#131315] p-6 shadow-2xl transition-all">
+      <div className="w-full max-w-md rounded-lg border border-[#d6dae1] dark:border-[#292f42] bg-white dark:bg-[#131315] p-6 shadow-2xl transition-all">
         {/* Header */}
-        <div className="flex items-center justify-between pb-3.5 border-b border-[#e4e4e7] dark:border-[#242428]">
+        <div className="flex items-center justify-between pb-3.5 border-b border-[#d6dae1] dark:border-[#292f42]">
           <div>
             <h3 className="font-bold text-base text-[#18181b] dark:text-[#ededef]">
               Create Team Finder Listing
@@ -53,7 +53,7 @@ export default function PostLfgModal({ isOpen, onClose, onPostSuccess }) {
           </div>
           <button
             onClick={onClose}
-            className="p-1 rounded border border-[#e4e4e7] dark:border-[#242428] hover:bg-[#f3f3f5] dark:hover:bg-[#18181c] text-[#64646e] dark:text-[#8a8a93] hover:text-[#18181b] dark:hover:text-[#ededef] transition-colors cursor-pointer"
+            className="p-1 rounded border border-[#d6dae1] dark:border-[#292f42] hover:bg-[#f3f3f5] dark:hover:bg-[#18181c] text-[#64646e] dark:text-[#8a8a93] hover:text-[#18181b] dark:hover:text-[#ededef] transition-colors cursor-pointer"
             title="Close"
           >
             <X className="w-4 h-4" />
@@ -73,7 +73,7 @@ export default function PostLfgModal({ isOpen, onClose, onPostSuccess }) {
                 className={`py-1.5 px-3 rounded border text-center font-medium transition-colors cursor-pointer ${
                   formData.type === 'Looking for Squad'
                     ? 'border-[#00966e] bg-[#00966e]/10 text-[#00966e]'
-                    : 'border-[#e4e4e7] dark:border-[#242428] text-[#64646e] dark:text-[#8a8a93]'
+                    : 'border-[#d6dae1] dark:border-[#292f42] text-[#64646e] dark:text-[#8a8a93]'
                 }`}
               >
                 Looking for Squad
@@ -84,7 +84,7 @@ export default function PostLfgModal({ isOpen, onClose, onPostSuccess }) {
                 className={`py-1.5 px-3 rounded border text-center font-medium transition-colors cursor-pointer ${
                   formData.type === 'Squad Recruiting'
                     ? 'border-[#00966e] bg-[#00966e]/10 text-[#00966e]'
-                    : 'border-[#e4e4e7] dark:border-[#242428] text-[#64646e] dark:text-[#8a8a93]'
+                    : 'border-[#d6dae1] dark:border-[#292f42] text-[#64646e] dark:text-[#8a8a93]'
                 }`}
               >
                 Squad Recruiting
@@ -103,7 +103,7 @@ export default function PostLfgModal({ isOpen, onClose, onPostSuccess }) {
                 placeholder="e.g. Stefan_TU"
                 value={formData.author}
                 onChange={(e) => setFormData({ ...formData, author: e.target.value })}
-                className="w-full px-3 py-2 rounded border border-[#e4e4e7] dark:border-[#242428] bg-[#f3f3f5] dark:bg-[#0c0c0e] text-[#18181b] dark:text-[#ededef] focus:outline-none focus:border-[#00966e]"
+                className="w-full px-3 py-2 rounded border border-[#d6dae1] dark:border-[#292f42] bg-[#f3f3f5] dark:bg-[#131620] text-[#18181b] dark:text-[#ededef] focus:outline-none focus:border-[#00966e]"
               />
             </div>
 
@@ -117,7 +117,7 @@ export default function PostLfgModal({ isOpen, onClose, onPostSuccess }) {
                 placeholder="e.g. stefan#1234"
                 value={formData.discordHandle}
                 onChange={(e) => setFormData({ ...formData, discordHandle: e.target.value })}
-                className="w-full px-3 py-2 rounded border border-[#e4e4e7] dark:border-[#242428] bg-[#f3f3f5] dark:bg-[#0c0c0e] text-[#18181b] dark:text-[#ededef] font-mono focus:outline-none focus:border-[#00966e]"
+                className="w-full px-3 py-2 rounded border border-[#d6dae1] dark:border-[#292f42] bg-[#f3f3f5] dark:bg-[#131620] text-[#18181b] dark:text-[#ededef] font-mono focus:outline-none focus:border-[#00966e]"
               />
             </div>
           </div>
@@ -132,7 +132,7 @@ export default function PostLfgModal({ isOpen, onClose, onPostSuccess }) {
                 placeholder="e.g. TU Sofia, 2nd yr"
                 value={formData.affiliation}
                 onChange={(e) => setFormData({ ...formData, affiliation: e.target.value })}
-                className="w-full px-3 py-2 rounded border border-[#e4e4e7] dark:border-[#242428] bg-[#f3f3f5] dark:bg-[#0c0c0e] text-[#18181b] dark:text-[#ededef] focus:outline-none focus:border-[#00966e]"
+                className="w-full px-3 py-2 rounded border border-[#d6dae1] dark:border-[#292f42] bg-[#f3f3f5] dark:bg-[#131620] text-[#18181b] dark:text-[#ededef] focus:outline-none focus:border-[#00966e]"
               />
             </div>
 
@@ -145,7 +145,7 @@ export default function PostLfgModal({ isOpen, onClose, onPostSuccess }) {
                 placeholder="e.g. Web, Crypto, Pwn"
                 value={formData.role}
                 onChange={(e) => setFormData({ ...formData, role: e.target.value })}
-                className="w-full px-3 py-2 rounded border border-[#e4e4e7] dark:border-[#242428] bg-[#f3f3f5] dark:bg-[#0c0c0e] text-[#18181b] dark:text-[#ededef] focus:outline-none focus:border-[#00966e]"
+                className="w-full px-3 py-2 rounded border border-[#d6dae1] dark:border-[#292f42] bg-[#f3f3f5] dark:bg-[#131620] text-[#18181b] dark:text-[#ededef] focus:outline-none focus:border-[#00966e]"
               />
             </div>
           </div>
@@ -159,7 +159,7 @@ export default function PostLfgModal({ isOpen, onClose, onPostSuccess }) {
               placeholder="e.g. Security BSides Sofia 2027"
               value={formData.targetEvent}
               onChange={(e) => setFormData({ ...formData, targetEvent: e.target.value })}
-              className="w-full px-3 py-2 rounded border border-[#e4e4e7] dark:border-[#242428] bg-[#f3f3f5] dark:bg-[#0c0c0e] text-[#18181b] dark:text-[#ededef] focus:outline-none focus:border-[#00966e]"
+              className="w-full px-3 py-2 rounded border border-[#d6dae1] dark:border-[#292f42] bg-[#f3f3f5] dark:bg-[#131620] text-[#18181b] dark:text-[#ededef] focus:outline-none focus:border-[#00966e]"
             />
           </div>
 
@@ -173,7 +173,7 @@ export default function PostLfgModal({ isOpen, onClose, onPostSuccess }) {
               placeholder="Describe challenges you practice or what you need from teammates..."
               value={formData.description}
               onChange={(e) => setFormData({ ...formData, description: e.target.value })}
-              className="w-full px-3 py-2 rounded border border-[#e4e4e7] dark:border-[#242428] bg-[#f3f3f5] dark:bg-[#0c0c0e] text-[#18181b] dark:text-[#ededef] focus:outline-none focus:border-[#00966e]"
+              className="w-full px-3 py-2 rounded border border-[#d6dae1] dark:border-[#292f42] bg-[#f3f3f5] dark:bg-[#131620] text-[#18181b] dark:text-[#ededef] focus:outline-none focus:border-[#00966e]"
             />
           </div>
 
@@ -181,7 +181,7 @@ export default function PostLfgModal({ isOpen, onClose, onPostSuccess }) {
             <button
               type="button"
               onClick={onClose}
-              className="px-3.5 py-1.5 rounded border border-[#e4e4e7] dark:border-[#242428] text-[#64646e] dark:text-[#8a8a93] hover:bg-[#f3f3f5] dark:hover:bg-[#18181c] cursor-pointer font-medium"
+              className="px-3.5 py-1.5 rounded border border-[#d6dae1] dark:border-[#292f42] text-[#64646e] dark:text-[#8a8a93] hover:bg-[#f3f3f5] dark:hover:bg-[#18181c] cursor-pointer font-medium"
             >
               Cancel
             </button>

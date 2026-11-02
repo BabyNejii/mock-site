@@ -47,8 +47,8 @@ export default function HubView({ onNavigate, onSelectTeam }) {
       <CampusNotice onNavigate={onNavigate} />
 
       {/* National Scene Bulletins */}
-      <section className="rounded-xl border border-[#e4e4e7] dark:border-[#222632] bg-white dark:bg-[#13161f] p-6 shadow-xs">
-        <div className="pb-3 border-b border-[#e4e4e7] dark:border-[#222632] flex items-center justify-between">
+      <section className="rounded-xl border border-[#d6dae1] dark:border-[#292f42] bg-white dark:bg-[#1a1e2b] p-6 shadow-xs">
+        <div className="pb-3 border-b border-[#d6dae1] dark:border-[#292f42] flex items-center justify-between">
           <div>
             <h2 className="text-sm font-bold text-[#18181b] dark:text-[#ededef]">
               {t.hub.newsTitle}

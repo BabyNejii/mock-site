@@ -43,7 +43,7 @@ export default function OnboardingView() {
   return (
     <div className="space-y-6">
       {/* Header Panel */}
-      <div className="rounded-xl border border-[#e4e4e7] dark:border-[#222632] bg-white dark:bg-[#13161f] p-6 shadow-xs transition-colors">
+      <div className="rounded-xl border border-[#d6dae1] dark:border-[#292f42] bg-white dark:bg-[#1a1e2b] p-6 shadow-xs transition-colors">
         <h1 className="text-xl sm:text-2xl font-bold tracking-tight text-[#18181b] dark:text-[#ededef]">
           {lang === 'bg' ? 'Наръчник за първи стъпки в CTF' : 'Capture The Flag Starter Guide'}
         </h1>
@@ -55,8 +55,8 @@ export default function OnboardingView() {
       </div>
 
       {/* Sequential Roadmap */}
-      <div className="rounded-xl border border-[#e4e4e7] dark:border-[#222632] bg-white dark:bg-[#13161f] p-6 shadow-xs">
-        <div className="pb-3 mb-6 border-b border-[#e4e4e7] dark:border-[#222632] flex items-center justify-between">
+      <div className="rounded-xl border border-[#d6dae1] dark:border-[#292f42] bg-white dark:bg-[#1a1e2b] p-6 shadow-xs">
+        <div className="pb-3 mb-6 border-b border-[#d6dae1] dark:border-[#292f42] flex items-center justify-between">
           <div>
             <h2 className="font-bold text-sm sm:text-base text-[#18181b] dark:text-[#ededef]">
               {lang === 'bg' ? 'Четиристепенно развитие' : 'The Four-Stage Progression'}
@@ -76,7 +76,7 @@ export default function OnboardingView() {
           {onboardingRoadmap.map((stage) => (
             <div
               key={stage.step}
-              className="p-5 rounded-lg border border-[#e4e4e7] dark:border-[#222632] bg-[#f8f9fa] dark:bg-[#0f1117] space-y-3"
+              className="p-5 rounded-lg border border-[#d6dae1] dark:border-[#292f42] bg-[#f0f3f6] dark:bg-[#141722] space-y-3"
             >
               <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
                 <div className="flex items-center gap-2">
@@ -104,7 +104,7 @@ export default function OnboardingView() {
                   {stage.keyTopics.map((topic, i) => (
                     <span
                       key={i}
-                      className="px-2 py-0.5 rounded text-xs bg-white dark:bg-[#13161f] text-[#18181b] dark:text-[#ededef] border border-[#e4e4e7] dark:border-[#222632]"
+                      className="px-2 py-0.5 rounded text-xs bg-white dark:bg-[#1a1e2b] text-[#18181b] dark:text-[#ededef] border border-[#d6dae1] dark:border-[#292f42]"
                     >
                       {topic}
                     </span>
@@ -112,7 +112,7 @@ export default function OnboardingView() {
                 </div>
               </div>
 
-              <div className="pt-2 border-t border-[#e4e4e7] dark:border-[#222632]">
+              <div className="pt-2 border-t border-[#d6dae1] dark:border-[#292f42]">
                 <span className="text-xs font-semibold text-[#18181b] dark:text-[#ededef] block mb-1">
                   {lang === 'bg' ? 'Препоръчани платформи за подготовка:' : 'Recommended Training Platforms:'}
                 </span>
@@ -139,8 +139,8 @@ export default function OnboardingView() {
       </div>
 
       {/* Core Disciplines List */}
-      <div className="rounded-xl border border-[#e4e4e7] dark:border-[#222632] bg-white dark:bg-[#13161f] p-6 shadow-xs">
-        <div className="pb-3 mb-4 border-b border-[#e4e4e7] dark:border-[#222632]">
+      <div className="rounded-xl border border-[#d6dae1] dark:border-[#292f42] bg-white dark:bg-[#1a1e2b] p-6 shadow-xs">
+        <div className="pb-3 mb-4 border-b border-[#d6dae1] dark:border-[#292f42]">
           <h2 className="font-bold text-sm sm:text-base text-[#18181b] dark:text-[#ededef]">
             {lang === 'bg' ? 'Основни категории и препоръчан софтуер' : 'Standard CTF Categories & Toolchains'}
           </h2>
@@ -150,7 +150,7 @@ export default function OnboardingView() {
           {categories.map((cat, i) => (
             <div
               key={i}
-              className="p-4 rounded-lg border border-[#e4e4e7] dark:border-[#222632] bg-[#f8f9fa] dark:bg-[#0f1117] space-y-1.5"
+              className="p-4 rounded-lg border border-[#d6dae1] dark:border-[#292f42] bg-[#f0f3f6] dark:bg-[#141722] space-y-1.5"
             >
               <h3 className="font-bold text-xs sm:text-sm text-[#18181b] dark:text-[#ededef]">
                 {cat.name}
@@ -170,14 +170,14 @@ export default function OnboardingView() {
       </div>
 
       {/* FAQ Accordion */}
-      <div className="rounded-xl border border-[#e4e4e7] dark:border-[#222632] bg-white dark:bg-[#13161f] p-6 shadow-xs">
-        <div className="pb-3 mb-4 border-b border-[#e4e4e7] dark:border-[#222632]">
+      <div className="rounded-xl border border-[#d6dae1] dark:border-[#292f42] bg-white dark:bg-[#1a1e2b] p-6 shadow-xs">
+        <div className="pb-3 mb-4 border-b border-[#d6dae1] dark:border-[#292f42]">
           <h2 className="font-bold text-sm sm:text-base text-[#18181b] dark:text-[#ededef]">
             {lang === 'bg' ? 'Често задавани въпроси' : 'Frequently Asked Questions'}
           </h2>
         </div>
 
-        <div className="divide-y divide-[#e4e4e7] dark:divide-[#222632] border border-[#e4e4e7] dark:border-[#222632] rounded-lg overflow-hidden">
+        <div className="divide-y divide-[#e4e4e7] dark:divide-[#222632] border border-[#d6dae1] dark:border-[#292f42] rounded-lg overflow-hidden">
           {commonFaq.map((item, idx) => {
             const isOpen = openFaq === idx;
             return (
@@ -194,7 +194,7 @@ export default function OnboardingView() {
                   )}
                 </button>
                 {isOpen && (
-                  <div className="p-4 pt-1 bg-[#f8f9fa] dark:bg-[#0f1117] text-xs sm:text-sm text-[#64646e] dark:text-[#8a8a93] leading-relaxed border-t border-[#e4e4e7] dark:border-[#222632]">
+                  <div className="p-4 pt-1 bg-[#f0f3f6] dark:bg-[#141722] text-xs sm:text-sm text-[#64646e] dark:text-[#8a8a93] leading-relaxed border-t border-[#d6dae1] dark:border-[#292f42]">
                     {item.a}
                   </div>
                 )}

@@ -43,9 +43,9 @@ export default function RegisterTeamModal({ isOpen, onClose, onRegisterSuccess }
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-xs">
-      <div className="w-full max-w-md rounded-lg border border-[#e4e4e7] dark:border-[#242428] bg-white dark:bg-[#131315] p-6 shadow-2xl transition-all">
+      <div className="w-full max-w-md rounded-lg border border-[#d6dae1] dark:border-[#292f42] bg-white dark:bg-[#131315] p-6 shadow-2xl transition-all">
         {/* Header */}
-        <div className="flex items-center justify-between pb-3.5 border-b border-[#e4e4e7] dark:border-[#242428]">
+        <div className="flex items-center justify-between pb-3.5 border-b border-[#d6dae1] dark:border-[#292f42]">
           <div>
             <h3 className="font-bold text-base text-[#18181b] dark:text-[#ededef]">
               Register Bulgarian CTF Squad
@@ -56,7 +56,7 @@ export default function RegisterTeamModal({ isOpen, onClose, onRegisterSuccess }
           </div>
           <button
             onClick={onClose}
-            className="p-1 rounded border border-[#e4e4e7] dark:border-[#242428] hover:bg-[#f3f3f5] dark:hover:bg-[#18181c] text-[#64646e] dark:text-[#8a8a93] hover:text-[#18181b] dark:hover:text-[#ededef] transition-colors cursor-pointer"
+            className="p-1 rounded border border-[#d6dae1] dark:border-[#292f42] hover:bg-[#f3f3f5] dark:hover:bg-[#18181c] text-[#64646e] dark:text-[#8a8a93] hover:text-[#18181b] dark:hover:text-[#ededef] transition-colors cursor-pointer"
             title="Close"
           >
             <X className="w-4 h-4" />
@@ -85,7 +85,7 @@ export default function RegisterTeamModal({ isOpen, onClose, onRegisterSuccess }
                 placeholder="e.g. TU Sofia CyberSquad"
                 value={formData.name}
                 onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                className="w-full px-3 py-2 rounded border border-[#e4e4e7] dark:border-[#242428] bg-[#f3f3f5] dark:bg-[#0c0c0e] text-[#18181b] dark:text-[#ededef] focus:outline-none focus:border-[#00966e]"
+                className="w-full px-3 py-2 rounded border border-[#d6dae1] dark:border-[#292f42] bg-[#f3f3f5] dark:bg-[#131620] text-[#18181b] dark:text-[#ededef] focus:outline-none focus:border-[#00966e]"
               />
             </div>
 
@@ -100,7 +100,7 @@ export default function RegisterTeamModal({ isOpen, onClose, onRegisterSuccess }
                   placeholder="e.g. 0xIvan"
                   value={formData.captain}
                   onChange={(e) => setFormData({ ...formData, captain: e.target.value })}
-                  className="w-full px-3 py-2 rounded border border-[#e4e4e7] dark:border-[#242428] bg-[#f3f3f5] dark:bg-[#0c0c0e] text-[#18181b] dark:text-[#ededef] focus:outline-none focus:border-[#00966e]"
+                  className="w-full px-3 py-2 rounded border border-[#d6dae1] dark:border-[#292f42] bg-[#f3f3f5] dark:bg-[#131620] text-[#18181b] dark:text-[#ededef] focus:outline-none focus:border-[#00966e]"
                 />
               </div>
 
@@ -113,7 +113,7 @@ export default function RegisterTeamModal({ isOpen, onClose, onRegisterSuccess }
                   placeholder="e.g. 194263"
                   value={formData.ctftimeId}
                   onChange={(e) => setFormData({ ...formData, ctftimeId: e.target.value })}
-                  className="w-full px-3 py-2 rounded border border-[#e4e4e7] dark:border-[#242428] bg-[#f3f3f5] dark:bg-[#0c0c0e] text-[#18181b] dark:text-[#ededef] font-mono focus:outline-none focus:border-[#00966e]"
+                  className="w-full px-3 py-2 rounded border border-[#d6dae1] dark:border-[#292f42] bg-[#f3f3f5] dark:bg-[#131620] text-[#18181b] dark:text-[#ededef] font-mono focus:outline-none focus:border-[#00966e]"
                 />
               </div>
             </div>
@@ -125,7 +125,7 @@ export default function RegisterTeamModal({ isOpen, onClose, onRegisterSuccess }
               <select
                 value={formData.affiliation}
                 onChange={(e) => setFormData({ ...formData, affiliation: e.target.value })}
-                className="w-full px-3 py-2 rounded border border-[#e4e4e7] dark:border-[#242428] bg-[#f3f3f5] dark:bg-[#0c0c0e] text-[#18181b] dark:text-[#ededef] focus:outline-none focus:border-[#00966e]"
+                className="w-full px-3 py-2 rounded border border-[#d6dae1] dark:border-[#292f42] bg-[#f3f3f5] dark:bg-[#131620] text-[#18181b] dark:text-[#ededef] focus:outline-none focus:border-[#00966e]"
               >
                 <option value="Technical University of Sofia">Technical University of Sofia (TU Sofia)</option>
                 <option value="Sofia University (FMI)">Sofia University St. Kliment Ohridski (FMI)</option>
@@ -143,7 +143,7 @@ export default function RegisterTeamModal({ isOpen, onClose, onRegisterSuccess }
               <select
                 value={formData.specialty}
                 onChange={(e) => setFormData({ ...formData, specialty: e.target.value })}
-                className="w-full px-3 py-2 rounded border border-[#e4e4e7] dark:border-[#242428] bg-[#f3f3f5] dark:bg-[#0c0c0e] text-[#18181b] dark:text-[#ededef] focus:outline-none focus:border-[#00966e]"
+                className="w-full px-3 py-2 rounded border border-[#d6dae1] dark:border-[#292f42] bg-[#f3f3f5] dark:bg-[#131620] text-[#18181b] dark:text-[#ededef] focus:outline-none focus:border-[#00966e]"
               >
                 <option value="Web Exploitation">Web Exploitation</option>
                 <option value="Binary Exploitation (Pwn)">Binary Exploitation (Pwn)</option>
@@ -162,7 +162,7 @@ export default function RegisterTeamModal({ isOpen, onClose, onRegisterSuccess }
                 placeholder="Briefly describe your squad and target CTFs..."
                 value={formData.bio}
                 onChange={(e) => setFormData({ ...formData, bio: e.target.value })}
-                className="w-full px-3 py-2 rounded border border-[#e4e4e7] dark:border-[#242428] bg-[#f3f3f5] dark:bg-[#0c0c0e] text-[#18181b] dark:text-[#ededef] focus:outline-none focus:border-[#00966e]"
+                className="w-full px-3 py-2 rounded border border-[#d6dae1] dark:border-[#292f42] bg-[#f3f3f5] dark:bg-[#131620] text-[#18181b] dark:text-[#ededef] focus:outline-none focus:border-[#00966e]"
               />
             </div>
 
@@ -170,7 +170,7 @@ export default function RegisterTeamModal({ isOpen, onClose, onRegisterSuccess }
               <button
                 type="button"
                 onClick={onClose}
-                className="px-3.5 py-1.5 rounded border border-[#e4e4e7] dark:border-[#242428] text-[#64646e] dark:text-[#8a8a93] hover:bg-[#f3f3f5] dark:hover:bg-[#18181c] cursor-pointer font-medium"
+                className="px-3.5 py-1.5 rounded border border-[#d6dae1] dark:border-[#292f42] text-[#64646e] dark:text-[#8a8a93] hover:bg-[#f3f3f5] dark:hover:bg-[#18181c] cursor-pointer font-medium"
               >
                 Cancel
               </button>

@@ -6,9 +6,9 @@ export default function TeamDetailModal({ team, onClose }) {
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-xs">
-      <div className="w-full max-w-lg rounded-lg border border-[#e4e4e7] dark:border-[#242428] bg-white dark:bg-[#131315] p-6 shadow-2xl transition-all">
+      <div className="w-full max-w-lg rounded-lg border border-[#d6dae1] dark:border-[#292f42] bg-white dark:bg-[#131315] p-6 shadow-2xl transition-all">
         {/* Header */}
-        <div className="flex items-start justify-between pb-3.5 border-b border-[#e4e4e7] dark:border-[#242428]">
+        <div className="flex items-start justify-between pb-3.5 border-b border-[#d6dae1] dark:border-[#292f42]">
           <div>
             <div className="flex items-center gap-2">
               <span className="font-bold text-lg text-[#18181b] dark:text-[#ededef]">
@@ -24,7 +24,7 @@ export default function TeamDetailModal({ team, onClose }) {
           </div>
           <button
             onClick={onClose}
-            className="p-1 rounded border border-[#e4e4e7] dark:border-[#242428] hover:bg-[#f3f3f5] dark:hover:bg-[#18181c] text-[#64646e] dark:text-[#8a8a93] hover:text-[#18181b] dark:hover:text-[#ededef] transition-colors cursor-pointer"
+            className="p-1 rounded border border-[#d6dae1] dark:border-[#292f42] hover:bg-[#f3f3f5] dark:hover:bg-[#18181c] text-[#64646e] dark:text-[#8a8a93] hover:text-[#18181b] dark:hover:text-[#ededef] transition-colors cursor-pointer"
             title="Close"
           >
             <X className="w-4 h-4" />
@@ -33,19 +33,19 @@ export default function TeamDetailModal({ team, onClose }) {
 
         {/* Stats Strip */}
         <div className="grid grid-cols-3 gap-2.5 my-4">
-          <div className="p-3 rounded border border-[#e4e4e7] dark:border-[#242428] bg-[#f3f3f5]/50 dark:bg-[#0c0c0e]/50 text-center">
+          <div className="p-3 rounded border border-[#d6dae1] dark:border-[#292f42] bg-[#f3f3f5]/50 dark:bg-[#131620]/50 text-center">
             <span className="block text-[11px] text-[#64646e] dark:text-[#8a8a93] font-medium">2024 Points</span>
             <span className="font-mono font-bold text-base text-[#00966e]">
               {team.points2024 ? team.points2024.toFixed(2) : '0.00'}
             </span>
           </div>
-          <div className="p-3 rounded border border-[#e4e4e7] dark:border-[#242428] bg-[#f3f3f5]/50 dark:bg-[#0c0c0e]/50 text-center">
+          <div className="p-3 rounded border border-[#d6dae1] dark:border-[#292f42] bg-[#f3f3f5]/50 dark:bg-[#131620]/50 text-center">
             <span className="block text-[11px] text-[#64646e] dark:text-[#8a8a93] font-medium">Events Played</span>
             <span className="font-mono font-bold text-base text-[#18181b] dark:text-[#ededef]">
               {team.eventsPlayed2024 || '0'}
             </span>
           </div>
-          <div className="p-3 rounded border border-[#e4e4e7] dark:border-[#242428] bg-[#f3f3f5]/50 dark:bg-[#0c0c0e]/50 text-center">
+          <div className="p-3 rounded border border-[#d6dae1] dark:border-[#292f42] bg-[#f3f3f5]/50 dark:bg-[#131620]/50 text-center">
             <span className="block text-[11px] text-[#64646e] dark:text-[#8a8a93] font-medium">World Rank</span>
             <span className="font-mono font-bold text-base text-[#18181b] dark:text-[#ededef]">
               #{team.globalRank || '—'}
@@ -58,7 +58,7 @@ export default function TeamDetailModal({ team, onClose }) {
           <span className="text-xs font-semibold text-[#18181b] dark:text-[#ededef] block mb-1">
             Squad Profile
           </span>
-          <p className="text-xs sm:text-sm text-[#64646e] dark:text-[#8a8a93] leading-relaxed rounded border border-[#e4e4e7] dark:border-[#242428] bg-[#f3f3f5]/30 dark:bg-[#0c0c0e]/30 p-3">
+          <p className="text-xs sm:text-sm text-[#64646e] dark:text-[#8a8a93] leading-relaxed rounded border border-[#d6dae1] dark:border-[#292f42] bg-[#f3f3f5]/30 dark:bg-[#131620]/30 p-3">
             {team.bio}
           </p>
         </div>
@@ -100,7 +100,7 @@ export default function TeamDetailModal({ team, onClose }) {
         )}
 
         {/* Footer */}
-        <div className="pt-3.5 border-t border-[#e4e4e7] dark:border-[#242428] flex items-center justify-between text-xs">
+        <div className="pt-3.5 border-t border-[#d6dae1] dark:border-[#292f42] flex items-center justify-between text-xs">
           <a
             href={`https://ctftime.org/team/${team.ctftimeId}`}
             target="_blank"

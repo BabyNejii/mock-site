@@ -22,7 +22,7 @@ export default function Navbar({ activeTab, setActiveTab, isDark, toggleTheme, o
   };
 
   return (
-    <header className="sticky top-0 z-40 w-full border-b border-[#e4e4e7] dark:border-[#242428] bg-white/95 dark:bg-[#0c0c0e]/95 backdrop-blur-md transition-colors">
+    <header className="sticky top-0 z-40 w-full border-b border-[#d6dae1] dark:border-[#292f42] bg-white/95 dark:bg-[#131620]/95 backdrop-blur-md transition-colors">
       {/* Bulgarian Tricolor Micro Ribbon */}
       <div className="h-[2px] w-full flex">
         <div className="w-1/3 bg-white dark:bg-[#ededef]" />
@@ -73,7 +73,7 @@ export default function Navbar({ activeTab, setActiveTab, isDark, toggleTheme, o
             <button
               onClick={toggleLang}
               aria-label="Toggle language"
-              className="px-2 py-1 rounded-md border border-[#e4e4e7] dark:border-[#242428] text-xs font-mono font-semibold hover:bg-[#f3f3f5] dark:hover:bg-[#131315] transition-colors cursor-pointer flex items-center gap-1"
+              className="px-2 py-1 rounded-md border border-[#d6dae1] dark:border-[#292f42] text-xs font-mono font-semibold hover:bg-[#f3f3f5] dark:hover:bg-[#131315] transition-colors cursor-pointer flex items-center gap-1"
               title={lang === 'bg' ? 'Switch to English' : 'Превключи на Български'}
             >
               <span className={lang === 'bg' ? 'text-[#00966e] font-bold' : 'text-[#64646e] dark:text-[#8a8a93]'}>
@@ -89,7 +89,7 @@ export default function Navbar({ activeTab, setActiveTab, isDark, toggleTheme, o
             <button
               onClick={toggleTheme}
               aria-label="Toggle theme"
-              className="p-1.5 rounded-md border border-[#e4e4e7] dark:border-[#242428] text-[#64646e] dark:text-[#8a8a93] hover:text-[#18181b] dark:hover:text-[#ededef] hover:bg-[#f3f3f5] dark:hover:bg-[#131315] transition-colors cursor-pointer"
+              className="p-1.5 rounded-md border border-[#d6dae1] dark:border-[#292f42] text-[#64646e] dark:text-[#8a8a93] hover:text-[#18181b] dark:hover:text-[#ededef] hover:bg-[#f3f3f5] dark:hover:bg-[#131315] transition-colors cursor-pointer"
               title={isDark ? 'Switch to light mode' : 'Switch to dark mode'}
             >
               {isDark ? <Sun className="w-4 h-4 text-amber-400" /> : <Moon className="w-4 h-4 text-[#18181b]" />}
@@ -107,7 +107,7 @@ export default function Navbar({ activeTab, setActiveTab, isDark, toggleTheme, o
             {/* Mobile Hamburger */}
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="md:hidden p-1.5 rounded-md border border-[#e4e4e7] dark:border-[#242428] text-[#64646e] dark:text-[#8a8a93] cursor-pointer"
+              className="md:hidden p-1.5 rounded-md border border-[#d6dae1] dark:border-[#292f42] text-[#64646e] dark:text-[#8a8a93] cursor-pointer"
             >
               {isMobileMenuOpen ? <X className="w-4 h-4" /> : <Menu className="w-4 h-4" />}
             </button>
@@ -117,7 +117,7 @@ export default function Navbar({ activeTab, setActiveTab, isDark, toggleTheme, o
 
       {/* Mobile Drawer */}
       {isMobileMenuOpen && (
-        <div className="md:hidden border-t border-[#e4e4e7] dark:border-[#242428] bg-white dark:bg-[#0c0c0e] px-4 py-3 space-y-1">
+        <div className="md:hidden border-t border-[#d6dae1] dark:border-[#292f42] bg-white dark:bg-[#131620] px-4 py-3 space-y-1">
           {navItems.map((item) => {
             const isActive = activeTab === item.id;
             return (

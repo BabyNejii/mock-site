@@ -47,8 +47,8 @@ export default function LfgView({ lfgPosts, onOpenPostLfg }) {
   return (
     <div className="space-y-6">
       {/* Header Panel */}
-      <div className="rounded-xl border border-[#e4e4e7] dark:border-[#222632] bg-white dark:bg-[#13161f] p-6 shadow-xs transition-colors">
-        <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-4 pb-4 border-b border-[#e4e4e7] dark:border-[#222632]">
+      <div className="rounded-xl border border-[#d6dae1] dark:border-[#292f42] bg-white dark:bg-[#1a1e2b] p-6 shadow-xs transition-colors">
+        <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-4 pb-4 border-b border-[#d6dae1] dark:border-[#292f42]">
           <div className="space-y-1">
             <h1 className="text-xl sm:text-2xl font-bold tracking-tight text-[#18181b] dark:text-[#ededef]">
               {lang === 'bg' ? 'Намери отбор (Team Finder)' : 'Team Finder Board'}
@@ -69,7 +69,7 @@ export default function LfgView({ lfgPosts, onOpenPostLfg }) {
                 placeholder={lang === 'bg' ? 'Търсене на обяви...' : 'Search recruitment posts...'}
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="pl-9 pr-3 py-1.5 rounded-md border border-[#e4e4e7] dark:border-[#222632] bg-[#f3f3f5] dark:bg-[#0c0e12] text-[#18181b] dark:text-[#ededef] text-xs focus:outline-none focus:border-[#00966e] w-full sm:w-56"
+                className="pl-9 pr-3 py-1.5 rounded-md border border-[#d6dae1] dark:border-[#292f42] bg-[#f3f3f5] dark:bg-[#131620] text-[#18181b] dark:text-[#ededef] text-xs focus:outline-none focus:border-[#00966e] w-full sm:w-56"
               />
             </div>
 
@@ -95,7 +95,7 @@ export default function LfgView({ lfgPosts, onOpenPostLfg }) {
               className={`px-2.5 py-1 rounded text-xs font-medium transition-colors cursor-pointer whitespace-nowrap shrink-0 ${
                 filterType === type.id
                   ? 'bg-[#18181b] text-white dark:bg-[#ededef] dark:text-[#0c0e12]'
-                  : 'border border-[#e4e4e7] dark:border-[#222632] bg-transparent text-[#64646e] dark:text-[#8a8a93] hover:text-[#18181b] dark:hover:text-[#ededef]'
+                  : 'border border-[#d6dae1] dark:border-[#292f42] bg-transparent text-[#64646e] dark:text-[#8a8a93] hover:text-[#18181b] dark:hover:text-[#ededef]'
               }`}
             >
               {type.label}
@@ -105,7 +105,7 @@ export default function LfgView({ lfgPosts, onOpenPostLfg }) {
       </div>
 
       {/* University Focus Note */}
-      <div className="rounded-xl border border-[#e4e4e7] dark:border-[#222632] bg-[#f8f9fa] dark:bg-[#0f1117] p-4 text-xs text-[#64646e] dark:text-[#8a8a93] space-y-1">
+      <div className="rounded-xl border border-[#d6dae1] dark:border-[#292f42] bg-[#f0f3f6] dark:bg-[#141722] p-4 text-xs text-[#64646e] dark:text-[#8a8a93] space-y-1">
         <span className="font-semibold text-[#18181b] dark:text-[#ededef] block">
           {lang === 'bg'
             ? 'Сформирате студентски отбор в ТУ-София, ФМИ или УНСС?'
@@ -119,7 +119,7 @@ export default function LfgView({ lfgPosts, onOpenPostLfg }) {
       </div>
 
       {/* Structured Listings Feed */}
-      <div className="rounded-xl border border-[#e4e4e7] dark:border-[#222632] bg-white dark:bg-[#13161f] divide-y divide-[#e4e4e7] dark:divide-[#222632] overflow-hidden">
+      <div className="rounded-xl border border-[#d6dae1] dark:border-[#292f42] bg-white dark:bg-[#1a1e2b] divide-y divide-[#e4e4e7] dark:divide-[#222632] overflow-hidden">
         {filteredPosts.length === 0 ? (
           <div className="p-8 text-center text-xs text-[#64646e] dark:text-[#8a8a93]">
             {lang === 'bg' ? 'Няма намерени обяви по критериите.' : 'No listings found matching your search.'}
@@ -162,7 +162,7 @@ export default function LfgView({ lfgPosts, onOpenPostLfg }) {
                 {post.description}
               </p>
 
-              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pt-1 border-t border-[#e4e4e7] dark:border-[#222632]">
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pt-1 border-t border-[#d6dae1] dark:border-[#292f42]">
                 <div className="flex items-center gap-2 text-xs">
                   <span className="text-[#64646e] dark:text-[#8a8a93]">
                     {lang === 'bg' ? 'Целево състезание:' : 'Target Event:'}
@@ -175,7 +175,7 @@ export default function LfgView({ lfgPosts, onOpenPostLfg }) {
                 <div className="flex items-center gap-2">
                   <button
                     onClick={() => handleCopyDiscord(post.id, post.discord)}
-                    className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded border border-[#e4e4e7] dark:border-[#222632] hover:bg-white dark:hover:bg-[#13161f] text-[#18181b] dark:text-[#ededef] text-xs font-mono transition-colors cursor-pointer"
+                    className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded border border-[#d6dae1] dark:border-[#292f42] hover:bg-white dark:hover:bg-[#13161f] text-[#18181b] dark:text-[#ededef] text-xs font-mono transition-colors cursor-pointer"
                     title={lang === 'bg' ? 'Копирай Discord потребител' : 'Copy Discord handle'}
                   >
                     <MessageSquare className="w-3 h-3 text-[#00966e]" />

@@ -49,8 +49,8 @@ export default function WriteupsView({ onSelectWriteup }) {
   return (
     <div className="space-y-6">
       {/* Header Panel */}
-      <div className="rounded-xl border border-[#e4e4e7] dark:border-[#222632] bg-white dark:bg-[#13161f] p-6 shadow-xs transition-colors">
-        <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-4 pb-4 border-b border-[#e4e4e7] dark:border-[#222632]">
+      <div className="rounded-xl border border-[#d6dae1] dark:border-[#292f42] bg-white dark:bg-[#1a1e2b] p-6 shadow-xs transition-colors">
+        <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-4 pb-4 border-b border-[#d6dae1] dark:border-[#292f42]">
           <div className="space-y-1">
             <h1 className="text-xl sm:text-2xl font-bold tracking-tight text-[#18181b] dark:text-[#ededef]">
               {lang === 'bg' ? 'Архив с решения на състезателни задачи' : 'Writeup Vault and Solution Guides'}
@@ -70,7 +70,7 @@ export default function WriteupsView({ onSelectWriteup }) {
               placeholder={lang === 'bg' ? 'Търсене на решения...' : 'Search writeups...'}
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="pl-9 pr-3 py-1.5 rounded-md border border-[#e4e4e7] dark:border-[#222632] bg-[#f3f3f5] dark:bg-[#0c0e12] text-[#18181b] dark:text-[#ededef] text-xs focus:outline-none focus:border-[#00966e] w-full sm:w-56"
+              className="pl-9 pr-3 py-1.5 rounded-md border border-[#d6dae1] dark:border-[#292f42] bg-[#f3f3f5] dark:bg-[#131620] text-[#18181b] dark:text-[#ededef] text-xs focus:outline-none focus:border-[#00966e] w-full sm:w-56"
             />
           </div>
         </div>
@@ -87,7 +87,7 @@ export default function WriteupsView({ onSelectWriteup }) {
               className={`px-2.5 py-1 rounded text-xs font-medium transition-colors cursor-pointer whitespace-nowrap shrink-0 ${
                 selectedCategory === opt.id
                   ? 'bg-[#18181b] text-white dark:bg-[#ededef] dark:text-[#0c0e12]'
-                  : 'border border-[#e4e4e7] dark:border-[#222632] bg-transparent text-[#64646e] dark:text-[#8a8a93] hover:text-[#18181b] dark:hover:text-[#ededef]'
+                  : 'border border-[#d6dae1] dark:border-[#292f42] bg-transparent text-[#64646e] dark:text-[#8a8a93] hover:text-[#18181b] dark:hover:text-[#ededef]'
               }`}
             >
               {opt.label}
@@ -97,7 +97,7 @@ export default function WriteupsView({ onSelectWriteup }) {
       </div>
 
       {/* Code-Centric Writeups Feed */}
-      <div className="rounded-xl border border-[#e4e4e7] dark:border-[#222632] bg-white dark:bg-[#13161f] divide-y divide-[#e4e4e7] dark:divide-[#222632] overflow-hidden">
+      <div className="rounded-xl border border-[#d6dae1] dark:border-[#292f42] bg-white dark:bg-[#1a1e2b] divide-y divide-[#e4e4e7] dark:divide-[#222632] overflow-hidden">
         {filteredWriteups.length === 0 ? (
           <div className="p-8 text-center text-xs text-[#64646e] dark:text-[#8a8a93]">
             {lang === 'bg' ? 'Няма намерени решения по запитването.' : 'No writeups found matching your query.'}
@@ -139,7 +139,7 @@ export default function WriteupsView({ onSelectWriteup }) {
                 </p>
               </div>
 
-              <div className="flex items-center justify-between pt-2 border-t border-[#e4e4e7] dark:border-[#222632] text-xs">
+              <div className="flex items-center justify-between pt-2 border-t border-[#d6dae1] dark:border-[#292f42] text-xs">
                 <div className="flex items-center gap-2">
                   <span className="text-[#64646e] dark:text-[#8a8a93]">{lang === 'bg' ? 'Автор:' : 'Author:'}</span>
                   <span className="font-semibold text-[#18181b] dark:text-[#ededef]">{w.author}</span>

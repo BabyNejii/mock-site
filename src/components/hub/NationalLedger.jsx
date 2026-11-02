@@ -18,14 +18,14 @@ export default function NationalLedger({ onNavigate, onSelectTeam, teams = mockT
     if (rank === 3) {
       return 'bg-amber-700/10 text-amber-700 dark:text-amber-500/90 border-amber-700/25 font-semibold';
     }
-    return 'bg-[#f3f3f5] dark:bg-[#14161d] text-[#64646e] dark:text-[#8a8a93] border-[#e4e4e7] dark:border-[#222632] font-mono';
+    return 'bg-[#f3f3f5] dark:bg-[#14161d] text-[#64646e] dark:text-[#8a8a93] border-[#d6dae1] dark:border-[#292f42] font-mono';
   };
 
   return (
-    <div className="rounded-xl border border-[#e4e4e7] dark:border-[#222632] bg-white dark:bg-[#13161f] shadow-xs flex flex-col justify-between transition-colors overflow-hidden">
+    <div className="rounded-xl border border-[#d6dae1] dark:border-[#292f42] bg-white dark:bg-[#1a1e2b] shadow-xs flex flex-col justify-between transition-colors overflow-hidden">
       <div>
         {/* Header */}
-        <div className="p-4 sm:p-5 border-b border-[#e4e4e7] dark:border-[#222632] flex items-center justify-between">
+        <div className="p-4 sm:p-5 border-b border-[#d6dae1] dark:border-[#292f42] flex items-center justify-between">
           <div className="space-y-0.5">
             <div className="flex items-center gap-2">
               <Trophy className="w-4 h-4 text-amber-500" />
@@ -115,7 +115,7 @@ export default function NationalLedger({ onNavigate, onSelectTeam, teams = mockT
         </div>
       </div>
 
-      <div className="p-3 border-t border-[#e4e4e7] dark:border-[#222632] bg-[#f8f9fa] dark:bg-[#0f1117] text-center">
+      <div className="p-3 border-t border-[#d6dae1] dark:border-[#292f42] bg-[#f0f3f6] dark:bg-[#141722] text-center">
         <button
           onClick={() => onNavigate('leaderboard')}
           className="text-xs text-[#64646e] dark:text-[#8a8a93] hover:text-[#18181b] dark:hover:text-[#ededef] font-medium transition-colors cursor-pointer"

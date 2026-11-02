@@ -15,9 +15,9 @@ export default function WriteupDetailModal({ writeup, onClose }) {
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-xs overflow-y-auto">
-      <div className="w-full max-w-2xl my-8 rounded-lg border border-[#e4e4e7] dark:border-[#242428] bg-white dark:bg-[#131315] p-6 shadow-2xl transition-all max-h-[90vh] flex flex-col">
+      <div className="w-full max-w-2xl my-8 rounded-lg border border-[#d6dae1] dark:border-[#292f42] bg-white dark:bg-[#131315] p-6 shadow-2xl transition-all max-h-[90vh] flex flex-col">
         {/* Header */}
-        <div className="flex items-start justify-between pb-4 border-b border-[#e4e4e7] dark:border-[#242428] shrink-0">
+        <div className="flex items-start justify-between pb-4 border-b border-[#d6dae1] dark:border-[#292f42] shrink-0">
           <div>
             <div className="flex flex-wrap items-center gap-2 mb-1.5">
               <span className="px-2 py-0.5 rounded text-[11px] font-mono font-medium bg-[#00966e]/10 text-[#00966e] border border-[#00966e]/20">
@@ -39,7 +39,7 @@ export default function WriteupDetailModal({ writeup, onClose }) {
           </div>
           <button
             onClick={onClose}
-            className="p-1 rounded border border-[#e4e4e7] dark:border-[#242428] hover:bg-[#f3f3f5] dark:hover:bg-[#18181c] text-[#64646e] dark:text-[#8a8a93] hover:text-[#18181b] dark:hover:text-[#ededef] transition-colors cursor-pointer"
+            className="p-1 rounded border border-[#d6dae1] dark:border-[#292f42] hover:bg-[#f3f3f5] dark:hover:bg-[#18181c] text-[#64646e] dark:text-[#8a8a93] hover:text-[#18181b] dark:hover:text-[#ededef] transition-colors cursor-pointer"
             title="Close"
           >
             <X className="w-4 h-4" />
@@ -52,7 +52,7 @@ export default function WriteupDetailModal({ writeup, onClose }) {
             <span className="text-xs font-semibold text-[#18181b] dark:text-[#ededef] block mb-1">
               Challenge Overview
             </span>
-            <p className="rounded border border-[#e4e4e7] dark:border-[#242428] bg-[#f3f3f5]/50 dark:bg-[#0c0c0e]/50 p-3.5 text-[#18181b] dark:text-[#ededef]">
+            <p className="rounded border border-[#d6dae1] dark:border-[#292f42] bg-[#f3f3f5]/50 dark:bg-[#131620]/50 p-3.5 text-[#18181b] dark:text-[#ededef]">
               {writeup.summary}
             </p>
           </div>
@@ -73,7 +73,7 @@ export default function WriteupDetailModal({ writeup, onClose }) {
                   <span>{copied ? 'Copied script' : 'Copy script'}</span>
                 </button>
               </div>
-              <pre className="font-mono text-xs bg-[#f3f3f5] dark:bg-[#0c0c0e] text-[#00966e] p-3.5 rounded border border-[#e4e4e7] dark:border-[#242428] overflow-x-auto leading-relaxed">
+              <pre className="font-mono text-xs bg-[#f3f3f5] dark:bg-[#131620] text-[#00966e] p-3.5 rounded border border-[#d6dae1] dark:border-[#292f42] overflow-x-auto leading-relaxed">
                 <code>{writeup.snippet}</code>
               </pre>
             </div>
@@ -84,14 +84,14 @@ export default function WriteupDetailModal({ writeup, onClose }) {
             <span className="text-xs font-semibold text-[#18181b] dark:text-[#ededef] block mb-1">
               Methodology and Walkthrough
             </span>
-            <div className="whitespace-pre-line rounded border border-[#e4e4e7] dark:border-[#242428] bg-[#f3f3f5]/50 dark:bg-[#0c0c0e]/50 p-4 text-[#18181b] dark:text-[#ededef]">
+            <div className="whitespace-pre-line rounded border border-[#d6dae1] dark:border-[#292f42] bg-[#f3f3f5]/50 dark:bg-[#131620]/50 p-4 text-[#18181b] dark:text-[#ededef]">
               {writeup.content}
             </div>
           </div>
         </div>
 
         {/* Footer */}
-        <div className="pt-3.5 border-t border-[#e4e4e7] dark:border-[#242428] flex items-center justify-between text-xs shrink-0">
+        <div className="pt-3.5 border-t border-[#d6dae1] dark:border-[#292f42] flex items-center justify-between text-xs shrink-0">
           <span className="text-[#64646e] dark:text-[#8a8a93] text-[11px]">
             ctf.bg technical writeup archive
           </span>

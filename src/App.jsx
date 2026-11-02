@@ -26,7 +26,7 @@ export default function App() {
   const [isDark, setIsDark] = useState(() => {
     const saved = localStorage.getItem('ctf_theme');
     if (saved) return saved === 'dark';
-    return true; // Default to dark mode for security terminal aesthetic
+    return false; // Default to light mode as requested
   });
 
   const [teams, setTeams] = useState(mockTeams);
@@ -67,10 +67,10 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen flex flex-col bg-[#f3f3f5] text-[#18181b] dark:bg-[#0c0c0e] dark:text-[#ededef] font-sans antialiased transition-colors duration-100">
+    <div className="min-h-screen flex flex-col bg-[#eaedf1] text-[#18181b] dark:bg-[#131620] dark:text-[#ededef] font-sans antialiased transition-colors duration-100">
       {/* Toast Notification */}
       {toastMessage && (
-        <div className="fixed bottom-5 right-5 z-50 flex items-center gap-3 px-4 py-2.5 rounded-md border border-[#e4e4e7] dark:border-[#242428] bg-white dark:bg-[#131315] text-[#18181b] dark:text-[#ededef] text-xs font-medium shadow-md transition-all">
+        <div className="fixed bottom-5 right-5 z-50 flex items-center gap-3 px-4 py-2.5 rounded-md border border-[#d6dae1] dark:border-[#292f42] bg-white dark:bg-[#131315] text-[#18181b] dark:text-[#ededef] text-xs font-medium shadow-md transition-all">
           <span className="w-2 h-2 rounded-full bg-[#00966e] shrink-0" />
           <span>{toastMessage}</span>
         </div>

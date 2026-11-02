@@ -58,8 +58,8 @@ END:VCALENDAR`;
   return (
     <div className="space-y-6">
       {/* Header Panel */}
-      <div className="rounded-xl border border-[#e4e4e7] dark:border-[#222632] bg-white dark:bg-[#13161f] p-6 shadow-xs transition-colors">
-        <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-4 pb-4 border-b border-[#e4e4e7] dark:border-[#222632]">
+      <div className="rounded-xl border border-[#d6dae1] dark:border-[#292f42] bg-white dark:bg-[#1a1e2b] p-6 shadow-xs transition-colors">
+        <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-4 pb-4 border-b border-[#d6dae1] dark:border-[#292f42]">
           <div className="space-y-1">
             <h1 className="text-xl sm:text-2xl font-bold tracking-tight text-[#18181b] dark:text-[#ededef]">
               {lang === 'bg' ? 'Календар на състезания и квалификации' : 'Competitions and Qualifiers Calendar'}
@@ -79,7 +79,7 @@ END:VCALENDAR`;
               placeholder={lang === 'bg' ? 'Филтриране на събития...' : 'Filter events...'}
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="pl-9 pr-3 py-1.5 rounded-md border border-[#e4e4e7] dark:border-[#222632] bg-[#f3f3f5] dark:bg-[#0c0e12] text-[#18181b] dark:text-[#ededef] text-xs focus:outline-none focus:border-[#00966e] w-full sm:w-60"
+              className="pl-9 pr-3 py-1.5 rounded-md border border-[#d6dae1] dark:border-[#292f42] bg-[#f3f3f5] dark:bg-[#131620] text-[#18181b] dark:text-[#ededef] text-xs focus:outline-none focus:border-[#00966e] w-full sm:w-60"
             />
           </div>
         </div>
@@ -96,7 +96,7 @@ END:VCALENDAR`;
               className={`px-2.5 py-1 rounded text-xs font-medium transition-colors cursor-pointer whitespace-nowrap shrink-0 ${
                 selectedType === opt.id
                   ? 'bg-[#18181b] text-white dark:bg-[#ededef] dark:text-[#0c0e12]'
-                  : 'border border-[#e4e4e7] dark:border-[#222632] bg-transparent text-[#64646e] dark:text-[#8a8a93] hover:text-[#18181b] dark:hover:text-[#ededef]'
+                  : 'border border-[#d6dae1] dark:border-[#292f42] bg-transparent text-[#64646e] dark:text-[#8a8a93] hover:text-[#18181b] dark:hover:text-[#ededef]'
               }`}
             >
               {opt.label}
@@ -106,7 +106,7 @@ END:VCALENDAR`;
       </div>
 
       {/* Events List Feed */}
-      <div className="rounded-xl border border-[#e4e4e7] dark:border-[#222632] bg-white dark:bg-[#13161f] shadow-xs divide-y divide-[#e4e4e7] dark:divide-[#222632] overflow-hidden">
+      <div className="rounded-xl border border-[#d6dae1] dark:border-[#292f42] bg-white dark:bg-[#1a1e2b] shadow-xs divide-y divide-[#e4e4e7] dark:divide-[#222632] overflow-hidden">
         {filteredEvents.length === 0 ? (
           <div className="p-8 text-center text-xs text-[#64646e] dark:text-[#8a8a93]">
             {lang === 'bg'
@@ -169,7 +169,7 @@ END:VCALENDAR`;
                 <div className="shrink-0 flex items-center gap-2 pt-2 md:pt-0">
                   <button
                     onClick={() => handleDownloadIcs(evt)}
-                    className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded border border-[#e4e4e7] dark:border-[#222632] hover:bg-white dark:hover:bg-[#13161f] text-[#18181b] dark:text-[#ededef] text-xs font-mono font-medium transition-colors cursor-pointer whitespace-nowrap shrink-0"
+                    className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded border border-[#d6dae1] dark:border-[#292f42] hover:bg-white dark:hover:bg-[#13161f] text-[#18181b] dark:text-[#ededef] text-xs font-mono font-medium transition-colors cursor-pointer whitespace-nowrap shrink-0"
                     title={lang === 'bg' ? 'Експортирай към .ics календар' : 'Export event to .ics format'}
                   >
                     <Download className="w-3.5 h-3.5" />

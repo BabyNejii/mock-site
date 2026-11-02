@@ -16,7 +16,7 @@ export default function Masthead({ onNavigate, onSelectTeam, timeLeft }) {
   };
 
   return (
-    <section className="rounded-xl border border-[#e4e4e7] dark:border-[#222632] bg-white dark:bg-[#13161f] shadow-xs overflow-hidden transition-colors">
+    <section className="rounded-xl border border-[#d6dae1] dark:border-[#292f42] bg-white dark:bg-[#1a1e2b] shadow-xs overflow-hidden transition-colors">
       {/* Top Hero: Identity, Description, and Key Directives */}
       <div className="p-6 sm:p-8 lg:p-10 space-y-6">
         <div className="space-y-3">
@@ -48,7 +48,7 @@ export default function Masthead({ onNavigate, onSelectTeam, timeLeft }) {
 
           <button
             onClick={() => onNavigate('lfg')}
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-md border border-[#e4e4e7] dark:border-[#222632] bg-transparent hover:bg-[#f3f3f5] dark:hover:bg-[#181b24] text-[#18181b] dark:text-[#ededef] text-xs font-semibold transition-colors cursor-pointer whitespace-nowrap shrink-0"
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-md border border-[#d6dae1] dark:border-[#292f42] bg-transparent hover:bg-[#f3f3f5] dark:hover:bg-[#181b24] text-[#18181b] dark:text-[#ededef] text-xs font-semibold transition-colors cursor-pointer whitespace-nowrap shrink-0"
           >
             <Users className="w-3.5 h-3.5 text-[#00966e]" />
             <span>{t.masthead.btnLfg}</span>
@@ -56,7 +56,7 @@ export default function Masthead({ onNavigate, onSelectTeam, timeLeft }) {
 
           <button
             onClick={() => onNavigate('calendar')}
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-md border border-[#e4e4e7] dark:border-[#222632] bg-transparent hover:bg-[#f3f3f5] dark:hover:bg-[#181b24] text-[#18181b] dark:text-[#ededef] text-xs font-semibold transition-colors cursor-pointer whitespace-nowrap shrink-0"
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-md border border-[#d6dae1] dark:border-[#292f42] bg-transparent hover:bg-[#f3f3f5] dark:hover:bg-[#181b24] text-[#18181b] dark:text-[#ededef] text-xs font-semibold transition-colors cursor-pointer whitespace-nowrap shrink-0"
           >
             <Calendar className="w-3.5 h-3.5 text-[#64646e] dark:text-[#8a8a93]" />
             <span>{t.masthead.btnCalendar}</span>
@@ -65,7 +65,7 @@ export default function Masthead({ onNavigate, onSelectTeam, timeLeft }) {
       </div>
 
       {/* 3 Authentic Spotlight Cards / Metric Tiles */}
-      <div className="grid grid-cols-1 md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-[#e4e4e7] dark:divide-[#222632] border-t border-[#e4e4e7] dark:border-[#222632] bg-[#f8f9fa] dark:bg-[#0f1117]">
+      <div className="grid grid-cols-1 md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-[#e4e4e7] dark:divide-[#222632] border-t border-[#d6dae1] dark:border-[#292f42] bg-[#f0f3f6] dark:bg-[#141722]">
         {/* Spotlight 1: National #1 Squad */}
         <div
           onClick={handleSelectPerperikon}
@@ -97,7 +97,7 @@ export default function Masthead({ onNavigate, onSelectTeam, timeLeft }) {
             </div>
           </div>
 
-          <div className="pt-2 border-t border-[#e4e4e7] dark:border-[#222632] flex items-center justify-between">
+          <div className="pt-2 border-t border-[#d6dae1] dark:border-[#292f42] flex items-center justify-between">
             <div className="flex items-baseline gap-1.5 font-mono">
               <span className="text-sm font-bold text-[#18181b] dark:text-[#ededef] tabular-nums">
                 373.73
@@ -136,7 +136,7 @@ export default function Masthead({ onNavigate, onSelectTeam, timeLeft }) {
             </div>
           </div>
 
-          <div className="pt-2 border-t border-[#e4e4e7] dark:border-[#222632] flex items-center justify-between">
+          <div className="pt-2 border-t border-[#d6dae1] dark:border-[#292f42] flex items-center justify-between">
             <span className="text-[11px] font-mono text-[#64646e] dark:text-[#8a8a93] whitespace-nowrap">
               ecsc-bg.eu
             </span>
@@ -178,7 +178,7 @@ export default function Masthead({ onNavigate, onSelectTeam, timeLeft }) {
             </div>
           </div>
 
-          <div className="pt-2 border-t border-[#e4e4e7] dark:border-[#222632] flex items-center justify-between">
+          <div className="pt-2 border-t border-[#d6dae1] dark:border-[#292f42] flex items-center justify-between">
             <span className="text-[11px] font-mono text-[#64646e] dark:text-[#8a8a93] whitespace-nowrap">
               March 27–28, 2027
             </span>

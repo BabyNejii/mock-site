@@ -6,7 +6,7 @@ export default function Footer({ onNavigate }) {
   const { lang, t } = useLanguage();
 
   return (
-    <footer className="border-t border-[#e4e4e7] dark:border-[#222632] bg-white dark:bg-[#13161f] text-[#64646e] dark:text-[#8a8a93] text-xs transition-colors">
+    <footer className="border-t border-[#d6dae1] dark:border-[#292f42] bg-white dark:bg-[#1a1e2b] text-[#64646e] dark:text-[#8a8a93] text-xs transition-colors">
       {/* Bulgarian Tricolor Ribbon */}
       <div className="h-[2px] w-full flex">
         <div className="flex-1 bg-white dark:bg-[#ededef]" />
@@ -125,7 +125,7 @@ export default function Footer({ onNavigate }) {
               href="https://discord.gg"
               target="_blank"
               rel="noreferrer"
-              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-md border border-[#e4e4e7] dark:border-[#222632] hover:bg-[#f3f3f5] dark:hover:bg-[#0c0e12] text-[#18181b] dark:text-[#ededef] text-xs font-medium transition-colors"
+              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-md border border-[#d6dae1] dark:border-[#292f42] hover:bg-[#f3f3f5] dark:hover:bg-[#0c0e12] text-[#18181b] dark:text-[#ededef] text-xs font-medium transition-colors"
             >
               <span>{lang === 'bg' ? 'Присъедини се към Discord' : 'Join Discord Server'}</span>
               <ExternalLink className="w-3 h-3" />
@@ -134,7 +134,7 @@ export default function Footer({ onNavigate }) {
         </div>
 
         {/* Bottom Colophon */}
-        <div className="pt-4 border-t border-[#e4e4e7] dark:border-[#222632] flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 text-[11px] text-[#64646e] dark:text-[#8a8a93]">
+        <div className="pt-4 border-t border-[#d6dae1] dark:border-[#292f42] flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 text-[11px] text-[#64646e] dark:text-[#8a8a93]">
           <p>© 2026–2027 ctf.bg — {lang === 'bg' ? 'Независим български общностен регистър' : 'Independent Bulgarian community registry'}</p>
           <p>ТУ-София, СУ (ФМИ), УНСС, НБУ</p>
         </div>

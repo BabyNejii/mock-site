@@ -16,7 +16,7 @@ export default function TalentView() {
   return (
     <div className="space-y-6">
       {/* Header Panel */}
-      <div className="rounded-xl border border-[#e4e4e7] dark:border-[#222632] bg-white dark:bg-[#13161f] p-6 shadow-xs transition-colors">
+      <div className="rounded-xl border border-[#d6dae1] dark:border-[#292f42] bg-white dark:bg-[#1a1e2b] p-6 shadow-xs transition-colors">
         <h1 className="text-xl sm:text-2xl font-bold tracking-tight text-[#18181b] dark:text-[#ededef]">
           {lang === 'bg' ? 'Кариерен център и партньори' : 'Infosec Careers and Ecosystem Sponsors'}
         </h1>
@@ -28,7 +28,7 @@ export default function TalentView() {
       </div>
 
       {/* Rationale Note */}
-      <div className="rounded-xl border border-[#e4e4e7] dark:border-[#222632] bg-[#f8f9fa] dark:bg-[#0f1117] p-5">
+      <div className="rounded-xl border border-[#d6dae1] dark:border-[#292f42] bg-[#f0f3f6] dark:bg-[#141722] p-5">
         <h2 className="font-semibold text-xs sm:text-sm text-[#18181b] dark:text-[#ededef] mb-1">
           {lang === 'bg'
             ? 'Защо компаниите за сигурност търсят таланти директно от CTF състезания?'
@@ -42,8 +42,8 @@ export default function TalentView() {
       </div>
 
       {/* Open Positions Section */}
-      <div className="rounded-xl border border-[#e4e4e7] dark:border-[#222632] bg-white dark:bg-[#13161f] p-6 shadow-xs">
-        <div className="pb-3 mb-4 border-b border-[#e4e4e7] dark:border-[#222632] flex items-center justify-between">
+      <div className="rounded-xl border border-[#d6dae1] dark:border-[#292f42] bg-white dark:bg-[#1a1e2b] p-6 shadow-xs">
+        <div className="pb-3 mb-4 border-b border-[#d6dae1] dark:border-[#292f42] flex items-center justify-between">
           <div>
             <h2 className="font-bold text-sm sm:text-base text-[#18181b] dark:text-[#ededef]">
               {lang === 'bg'
@@ -73,7 +73,7 @@ export default function TalentView() {
                       <span className="font-medium text-[#18181b] dark:text-[#ededef]">{job.company}</span> (Sofia, Bulgaria)
                     </div>
                   </div>
-                  <span className="text-[11px] font-mono px-2 py-0.5 rounded bg-[#f3f3f5] dark:bg-[#0c0e12] text-[#64646e] dark:text-[#8a8a93] border border-[#e4e4e7] dark:border-[#222632] self-start sm:self-auto">
+                  <span className="text-[11px] font-mono px-2 py-0.5 rounded bg-[#f3f3f5] dark:bg-[#131620] text-[#64646e] dark:text-[#8a8a93] border border-[#d6dae1] dark:border-[#292f42] self-start sm:self-auto">
                     {job.type}
                   </span>
                 </div>
@@ -109,7 +109,7 @@ export default function TalentView() {
                       {job.tags.map((tag, i) => (
                         <span
                           key={i}
-                          className="px-1.5 py-0.5 rounded text-[10px] font-mono bg-[#f8f9fa] dark:bg-[#0f1117] text-[#64646e] dark:text-[#8a8a93] border border-[#e4e4e7] dark:border-[#222632]"
+                          className="px-1.5 py-0.5 rounded text-[10px] font-mono bg-[#f0f3f6] dark:bg-[#141722] text-[#64646e] dark:text-[#8a8a93] border border-[#d6dae1] dark:border-[#292f42]"
                         >
                           #{tag}
                         </span>
@@ -145,8 +145,8 @@ export default function TalentView() {
       </div>
 
       {/* Community Partners */}
-      <div className="rounded-xl border border-[#e4e4e7] dark:border-[#222632] bg-white dark:bg-[#13161f] p-6 shadow-xs">
-        <div className="pb-3 mb-4 border-b border-[#e4e4e7] dark:border-[#222632]">
+      <div className="rounded-xl border border-[#d6dae1] dark:border-[#292f42] bg-white dark:bg-[#1a1e2b] p-6 shadow-xs">
+        <div className="pb-3 mb-4 border-b border-[#d6dae1] dark:border-[#292f42]">
           <h2 className="font-bold text-sm sm:text-base text-[#18181b] dark:text-[#ededef]">
             {lang === 'bg' ? 'Партньори и домакини на събития' : 'Community Partners and Event Hosts'}
           </h2>
@@ -156,7 +156,7 @@ export default function TalentView() {
           {mockSponsors.map((sp, i) => (
             <div
               key={i}
-              className="p-4 rounded-lg border border-[#e4e4e7] dark:border-[#222632] bg-[#f8f9fa] dark:bg-[#0f1117] space-y-1.5"
+              className="p-4 rounded-lg border border-[#d6dae1] dark:border-[#292f42] bg-[#f0f3f6] dark:bg-[#141722] space-y-1.5"
             >
               <span className="text-[10px] font-mono font-semibold text-[#00966e] bg-[#00966e]/10 px-1.5 py-0.5 rounded inline-block">
                 {sp.tier}

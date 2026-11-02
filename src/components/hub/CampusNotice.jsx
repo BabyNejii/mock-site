@@ -36,9 +36,9 @@ export default function CampusNotice({ onNavigate }) {
   ];
 
   return (
-    <section className="rounded-xl border border-[#e4e4e7] dark:border-[#222632] bg-white dark:bg-[#13161f] p-6 sm:p-7 shadow-xs transition-colors space-y-6">
+    <section className="rounded-xl border border-[#d6dae1] dark:border-[#292f42] bg-white dark:bg-[#1a1e2b] p-6 sm:p-7 shadow-xs transition-colors space-y-6">
       {/* Header */}
-      <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-3 pb-4 border-b border-[#e4e4e7] dark:border-[#222632]">
+      <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-3 pb-4 border-b border-[#d6dae1] dark:border-[#292f42]">
         <div className="space-y-1">
           <div className="flex items-center gap-2">
             <GraduationCap className="w-4 h-4 text-[#00966e]" />
@@ -60,7 +60,7 @@ export default function CampusNotice({ onNavigate }) {
         {universities.map((uni) => (
           <div
             key={uni.code}
-            className="p-5 rounded-lg border border-[#e4e4e7] dark:border-[#222632] bg-[#f8f9fa] dark:bg-[#0f1117] space-y-3.5 flex flex-col justify-between"
+            className="p-5 rounded-lg border border-[#d6dae1] dark:border-[#292f42] bg-[#f0f3f6] dark:bg-[#141722] space-y-3.5 flex flex-col justify-between"
           >
             <div className="space-y-2">
               <div className="flex items-center justify-between">
@@ -86,7 +86,7 @@ export default function CampusNotice({ onNavigate }) {
               </p>
             </div>
 
-            <div className="pt-2 border-t border-[#e4e4e7] dark:border-[#222632]">
+            <div className="pt-2 border-t border-[#d6dae1] dark:border-[#292f42]">
               <span className="block text-[10px] font-mono uppercase text-[#64646e] dark:text-[#8a8a93] mb-1.5">
                 {t.hub.focusDisciplines}
               </span>
@@ -94,7 +94,7 @@ export default function CampusNotice({ onNavigate }) {
                 {uni.disciplines.map((d, i) => (
                   <span
                     key={i}
-                    className="text-[10px] font-mono px-1.5 py-0.5 rounded bg-white dark:bg-[#181b24] border border-[#e4e4e7] dark:border-[#222632] text-[#18181b] dark:text-[#ededef]"
+                    className="text-[10px] font-mono px-1.5 py-0.5 rounded bg-white dark:bg-[#181b24] border border-[#d6dae1] dark:border-[#292f42] text-[#18181b] dark:text-[#ededef]"
                   >
                     {d}
                   </span>
@@ -121,7 +121,7 @@ export default function CampusNotice({ onNavigate }) {
           </button>
           <button
             onClick={() => onNavigate('onboarding')}
-            className="inline-flex items-center gap-1.5 px-3 py-2 rounded-md border border-[#e4e4e7] dark:border-[#222632] hover:bg-[#f3f3f5] dark:hover:bg-[#181b24] text-[#18181b] dark:text-[#ededef] text-xs font-semibold transition-colors cursor-pointer whitespace-nowrap shrink-0"
+            className="inline-flex items-center gap-1.5 px-3 py-2 rounded-md border border-[#d6dae1] dark:border-[#292f42] hover:bg-[#f3f3f5] dark:hover:bg-[#181b24] text-[#18181b] dark:text-[#ededef] text-xs font-semibold transition-colors cursor-pointer whitespace-nowrap shrink-0"
           >
             <BookOpen className="w-3.5 h-3.5 text-[#00966e]" />
             <span>{t.hub.trainingRoadmap}</span>

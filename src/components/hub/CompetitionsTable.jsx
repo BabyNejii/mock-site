@@ -18,10 +18,10 @@ export default function CompetitionsTable({ onNavigate }) {
   };
 
   return (
-    <div className="rounded-xl border border-[#e4e4e7] dark:border-[#222632] bg-white dark:bg-[#13161f] shadow-xs flex flex-col justify-between transition-colors overflow-hidden">
+    <div className="rounded-xl border border-[#d6dae1] dark:border-[#292f42] bg-white dark:bg-[#1a1e2b] shadow-xs flex flex-col justify-between transition-colors overflow-hidden">
       <div>
         {/* Header */}
-        <div className="p-4 sm:p-5 border-b border-[#e4e4e7] dark:border-[#222632] flex items-center justify-between">
+        <div className="p-4 sm:p-5 border-b border-[#d6dae1] dark:border-[#292f42] flex items-center justify-between">
           <div className="space-y-0.5">
             <div className="flex items-center gap-2">
               <Calendar className="w-4 h-4 text-[#00966e]" />
@@ -96,7 +96,7 @@ export default function CompetitionsTable({ onNavigate }) {
                     href={evt.url}
                     target="_blank"
                     rel="noreferrer"
-                    className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded border border-[#e4e4e7] dark:border-[#222632] hover:bg-white dark:hover:bg-[#13161f] text-[#18181b] dark:text-[#ededef] text-xs font-medium transition-colors whitespace-nowrap shrink-0"
+                    className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded border border-[#d6dae1] dark:border-[#292f42] hover:bg-white dark:hover:bg-[#13161f] text-[#18181b] dark:text-[#ededef] text-xs font-medium transition-colors whitespace-nowrap shrink-0"
                   >
                     <span>{t.common.website}</span>
                     <ExternalLink className="w-3 h-3 text-[#64646e] dark:text-[#8a8a93]" />
@@ -108,7 +108,7 @@ export default function CompetitionsTable({ onNavigate }) {
         </div>
       </div>
 
-      <div className="p-3 border-t border-[#e4e4e7] dark:border-[#222632] bg-[#f8f9fa] dark:bg-[#0f1117] text-center">
+      <div className="p-3 border-t border-[#d6dae1] dark:border-[#292f42] bg-[#f0f3f6] dark:bg-[#141722] text-center">
         <button
           onClick={() => onNavigate('calendar')}
           className="text-xs text-[#64646e] dark:text-[#8a8a93] hover:text-[#18181b] dark:hover:text-[#ededef] font-medium transition-colors cursor-pointer"
