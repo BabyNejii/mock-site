@@ -34,28 +34,28 @@ export default function WriteupsView({ onSelectWriteup }) {
   });
 
   const getCategoryBadge = (cat) => {
-    if (cat.toLowerCase().includes('pwn') || cat.toLowerCase().includes('binary')) {
-      return 'bg-rose-500/10 text-rose-600 dark:text-rose-400 border-rose-500/20';
-    }
     if (cat.toLowerCase().includes('web')) {
-      return 'bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border-emerald-500/20';
+      return 'bg-highlight/10 text-highlight border-highlight/25';
     }
-    if (cat.toLowerCase().includes('crypto')) {
-      return 'bg-purple-500/10 text-purple-600 dark:text-purple-400 border-purple-500/20';
+    if (cat.toLowerCase().includes('pwn') || cat.toLowerCase().includes('binary')) {
+      return 'bg-accent/10 text-accent border-accent/25';
     }
-    return 'bg-cyan-500/10 text-cyan-600 dark:text-cyan-400 border-cyan-500/20';
+    return 'bg-elevated text-secondary border-border-strong';
   };
 
   return (
     <div className="space-y-6">
-      {/* Header Panel */}
-      <div className="rounded-xl border border-[#d6dae1] dark:border-[#292f42] bg-white dark:bg-[#1a1e2b] p-6 shadow-xs transition-colors">
-        <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-4 pb-4 border-b border-[#d6dae1] dark:border-[#292f42]">
-          <div className="space-y-1">
-            <h1 className="text-xl sm:text-2xl font-bold tracking-tight text-[#18181b] dark:text-[#ededef]">
+      {/* Header */}
+      <div className="space-y-4">
+        <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
+          <div className="space-y-2">
+            <span className="font-mono text-[11px] font-medium uppercase tracking-[0.14em] text-accent">
+              {lang === 'bg' ? 'Архив' : 'Writeup Vault'}
+            </span>
+            <h1 className="font-display text-3xl sm:text-4xl font-bold tracking-tight text-strong">
               {lang === 'bg' ? 'Архив с решения на състезателни задачи' : 'Writeup Vault and Solution Guides'}
             </h1>
-            <p className="text-xs sm:text-sm text-[#64646e] dark:text-[#8a8a93]">
+            <p className="text-sm sm:text-base text-secondary max-w-2xl">
               {lang === 'bg'
                 ? 'Технически анализи, алгоритми и решения на задачи, подготвени от български участници.'
                 : 'Technical challenge breakdowns and solutions written by Bulgarian competitors.'}
@@ -63,31 +63,31 @@ export default function WriteupsView({ onSelectWriteup }) {
           </div>
 
           {/* Search */}
-          <div className="relative">
-            <Search className="w-4 h-4 absolute left-3 top-2.5 text-[#64646e] dark:text-[#8a8a93]" />
+          <div className="relative shrink-0">
+            <Search className="w-4 h-4 absolute left-3 top-2.5 text-muted" />
             <input
               type="text"
               placeholder={lang === 'bg' ? 'Търсене на решения...' : 'Search writeups...'}
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="pl-9 pr-3 py-1.5 rounded-md border border-[#d6dae1] dark:border-[#292f42] bg-[#f3f3f5] dark:bg-[#131620] text-[#18181b] dark:text-[#ededef] text-xs focus:outline-none focus:border-[#00966e] w-full sm:w-56"
+              className="pl-9 pr-3 py-1.5 rounded-lg border border-border-default bg-elevated text-strong text-sm focus:outline-none focus:border-accent w-full sm:w-56"
             />
           </div>
         </div>
 
         {/* Category Controls */}
-        <div className="pt-3 flex flex-wrap items-center gap-1.5">
-          <span className="text-xs font-mono text-[#64646e] dark:text-[#8a8a93] mr-2">
+        <div className="flex flex-wrap items-center gap-1.5">
+          <span className="text-[11px] font-mono uppercase tracking-wide text-muted mr-2">
             {lang === 'bg' ? 'КАТЕГОРИЯ:' : 'TRACK:'}
           </span>
           {categoryOptions.map((opt) => (
             <button
               key={opt.id}
               onClick={() => setSelectedCategory(opt.id)}
-              className={`px-2.5 py-1 rounded text-xs font-medium transition-colors cursor-pointer whitespace-nowrap shrink-0 ${
+              className={`px-2.5 py-1 rounded-lg text-xs font-medium transition-colors cursor-pointer whitespace-nowrap shrink-0 ${
                 selectedCategory === opt.id
-                  ? 'bg-[#18181b] text-white dark:bg-[#ededef] dark:text-[#0c0e12]'
-                  : 'border border-[#d6dae1] dark:border-[#292f42] bg-transparent text-[#64646e] dark:text-[#8a8a93] hover:text-[#18181b] dark:hover:text-[#ededef]'
+                  ? 'bg-accent/12 text-accent'
+                  : 'text-secondary hover:text-strong hover:bg-elevated'
               }`}
             >
               {opt.label}
@@ -97,9 +97,9 @@ export default function WriteupsView({ onSelectWriteup }) {
       </div>
 
       {/* Code-Centric Writeups Feed */}
-      <div className="rounded-xl border border-[#d6dae1] dark:border-[#292f42] bg-white dark:bg-[#1a1e2b] divide-y divide-[#e4e4e7] dark:divide-[#222632] overflow-hidden">
+      <div className="rounded-2xl border border-border-default bg-surface divide-y divide-divide overflow-hidden">
         {filteredWriteups.length === 0 ? (
-          <div className="p-8 text-center text-xs text-[#64646e] dark:text-[#8a8a93]">
+          <div className="p-8 text-center text-sm text-secondary">
             {lang === 'bg' ? 'Няма намерени решения по запитването.' : 'No writeups found matching your query.'}
           </div>
         ) : (
@@ -107,7 +107,7 @@ export default function WriteupsView({ onSelectWriteup }) {
             <div
               key={w.id}
               onClick={() => onSelectWriteup(w)}
-              className="p-5 hover:bg-[#f3f3f5] dark:hover:bg-[#181b24] transition-colors cursor-pointer space-y-3 group"
+              className="p-5 hover:bg-elevated transition-colors cursor-pointer space-y-3 group"
             >
               <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
                 <div className="flex flex-wrap items-center gap-2 text-xs">
@@ -118,36 +118,36 @@ export default function WriteupsView({ onSelectWriteup }) {
                   >
                     {w.category}
                   </span>
-                  <span className="text-[#64646e] dark:text-[#8a8a93]">
+                  <span className="text-secondary">
                     {lang === 'bg' ? 'Трудност:' : 'Difficulty:'}{' '}
-                    <strong className="text-[#18181b] dark:text-[#ededef] font-medium">{w.difficulty}</strong>
+                    <strong className="text-strong font-medium">{w.difficulty}</strong>
                   </span>
-                  <span className="text-[#64646e] dark:text-[#8a8a93]">{w.event}</span>
+                  <span className="text-secondary">{w.event}</span>
                 </div>
-                <div className="flex items-center gap-3 text-xs font-mono text-[#64646e] dark:text-[#8a8a93]">
+                <div className="flex items-center gap-3 text-xs font-mono tabular-nums text-muted">
                   <span>{w.solves} {lang === 'bg' ? 'решения' : 'solves'}</span>
                   <span>{w.date}</span>
                 </div>
               </div>
 
               <div>
-                <h2 className="text-base font-bold text-[#18181b] dark:text-[#ededef] group-hover:text-[#00966e] transition-colors">
+                <h2 className="text-base font-bold text-strong group-hover:text-accent transition-colors">
                   {w.title}
                 </h2>
-                <p className="text-xs sm:text-sm text-[#64646e] dark:text-[#8a8a93] mt-1 leading-relaxed">
+                <p className="text-sm text-secondary mt-1 leading-relaxed">
                   {w.summary}
                 </p>
               </div>
 
-              <div className="flex items-center justify-between pt-2 border-t border-[#d6dae1] dark:border-[#292f42] text-xs">
+              <div className="flex items-center justify-between pt-2 border-t border-divide text-sm">
                 <div className="flex items-center gap-2">
-                  <span className="text-[#64646e] dark:text-[#8a8a93]">{lang === 'bg' ? 'Автор:' : 'Author:'}</span>
-                  <span className="font-semibold text-[#18181b] dark:text-[#ededef]">{w.author}</span>
-                  <span className="text-zinc-300 dark:text-zinc-700">•</span>
-                  <span className="text-[11px] font-mono text-[#00966e]">{w.squad}</span>
+                  <span className="text-secondary">{lang === 'bg' ? 'Автор:' : 'Author:'}</span>
+                  <span className="font-semibold text-strong">{w.author}</span>
+                  <span className="text-muted">•</span>
+                  <span className="text-[11px] font-mono text-accent">{w.squad}</span>
                 </div>
 
-                <span className="text-xs text-[#00966e] group-hover:underline font-medium inline-flex items-center gap-1">
+                <span className="text-xs text-accent group-hover:underline font-medium inline-flex items-center gap-1">
                   <span>{lang === 'bg' ? 'Преглед на анализа' : 'Read full analysis'}</span>
                   <ExternalLink className="w-3 h-3" />
                 </span>

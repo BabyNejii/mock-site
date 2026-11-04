@@ -47,33 +47,33 @@ export default function HubView({ onNavigate, onSelectTeam }) {
       <CampusNotice onNavigate={onNavigate} />
 
       {/* National Scene Bulletins */}
-      <section className="rounded-xl border border-[#d6dae1] dark:border-[#292f42] bg-white dark:bg-[#1a1e2b] p-6 shadow-xs">
-        <div className="pb-3 border-b border-[#d6dae1] dark:border-[#292f42] flex items-center justify-between">
+      <section className="rounded-2xl border border-border-default bg-surface p-6">
+        <div className="pb-3 border-b border-border-default flex items-center justify-between">
           <div>
-            <h2 className="text-sm font-bold text-[#18181b] dark:text-[#ededef]">
+            <h2 className="text-sm font-bold text-strong">
               {t.hub.newsTitle}
             </h2>
-            <p className="text-[11px] text-[#64646e] dark:text-[#8a8a93]">
+            <p className="text-[11px] text-muted">
               {t.hub.newsSubtitle}
             </p>
           </div>
         </div>
 
-        <div className="divide-y divide-[#e4e4e7] dark:divide-[#222632]">
+        <div className="divide-y divide-divide">
           {mockNews.map((item) => (
             <div key={item.id} className="py-3.5 space-y-1">
               <div className="flex items-center gap-2">
-                <span className="font-mono text-[11px] text-[#64646e] dark:text-[#8a8a93]">
+                <span className="font-mono text-[11px] text-muted">
                   {item.date}
                 </span>
-                <span className="px-1.5 py-0.5 rounded text-[10px] font-mono text-[#00966e] bg-[#00966e]/10 border border-[#00966e]/20">
+                <span className="px-1.5 py-0.5 rounded text-[10px] font-mono text-accent bg-accent/10 border border-accent/25">
                   {item.category}
                 </span>
               </div>
-              <h3 className="text-xs sm:text-sm font-semibold text-[#18181b] dark:text-[#ededef]">
+              <h3 className="text-xs sm:text-sm font-semibold text-strong">
                 {item.title}
               </h3>
-              <p className="text-xs text-[#64646e] dark:text-[#8a8a93] leading-relaxed">
+              <p className="text-sm text-secondary leading-relaxed">
                 {item.excerpt}
               </p>
             </div>

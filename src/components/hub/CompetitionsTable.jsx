@@ -9,33 +9,33 @@ export default function CompetitionsTable({ onNavigate }) {
 
   const getTypeBadgeClass = (type) => {
     if (type.includes('Sofia') || type.includes('Local')) {
-      return 'bg-[#00966e]/10 text-[#00966e] border-[#00966e]/25';
+      return 'bg-accent/10 text-accent border-accent/25';
     }
     if (type.includes('National') || type.includes('Selection')) {
-      return 'bg-purple-500/10 text-purple-600 dark:text-purple-400 border-purple-500/25';
+      return 'bg-highlight/10 text-highlight border-highlight/25';
     }
-    return 'bg-blue-500/10 text-blue-600 dark:text-blue-400 border-blue-500/25';
+    return 'bg-secondary/10 text-secondary border-border-strong';
   };
 
   return (
-    <div className="rounded-xl border border-[#d6dae1] dark:border-[#292f42] bg-white dark:bg-[#1a1e2b] shadow-xs flex flex-col justify-between transition-colors overflow-hidden">
+    <div className="rounded-2xl border border-border-default bg-surface flex flex-col justify-between transition-colors overflow-hidden">
       <div>
         {/* Header */}
-        <div className="p-4 sm:p-5 border-b border-[#d6dae1] dark:border-[#292f42] flex items-center justify-between">
+        <div className="p-4 sm:p-5 border-b border-border-default flex items-center justify-between">
           <div className="space-y-0.5">
             <div className="flex items-center gap-2">
-              <Calendar className="w-4 h-4 text-[#00966e]" />
-              <h2 className="text-sm font-bold text-[#18181b] dark:text-[#ededef]">
+              <Calendar className="w-4 h-4 text-accent" />
+              <h2 className="text-sm font-bold text-strong">
                 {t.hub.upcomingEvents}
               </h2>
             </div>
-            <p className="text-[11px] text-[#64646e] dark:text-[#8a8a93]">
+            <p className="text-[11px] text-muted">
               {t.hub.eventsSubtitle}
             </p>
           </div>
           <button
             onClick={() => onNavigate('calendar')}
-            className="text-xs text-[#00966e] hover:underline font-semibold cursor-pointer inline-flex items-center gap-1"
+            className="text-xs text-accent hover:underline font-semibold cursor-pointer inline-flex items-center gap-1"
           >
             <span>{t.hub.allEvents}</span>
             <ArrowRight className="w-3 h-3" />
@@ -43,7 +43,7 @@ export default function CompetitionsTable({ onNavigate }) {
         </div>
 
         {/* Competition Event Rows */}
-        <div className="divide-y divide-[#e4e4e7] dark:divide-[#222632]">
+        <div className="divide-y divide-divide">
           {events.map((evt) => {
             const dateObj = new Date(evt.startDate);
             const formattedDate = `${dateObj.getFullYear()}.${String(dateObj.getMonth() + 1).padStart(2, '0')}.${String(
@@ -54,11 +54,11 @@ export default function CompetitionsTable({ onNavigate }) {
             return (
               <div
                 key={evt.id}
-                className="p-3.5 sm:p-4 hover:bg-[#f3f3f5] dark:hover:bg-[#181b24] transition-colors flex flex-col sm:flex-row sm:items-center justify-between gap-3 group"
+                className="p-3.5 sm:p-4 hover:bg-elevated transition-colors flex flex-col sm:flex-row sm:items-center justify-between gap-3 group"
               >
                 <div className="space-y-1.5 min-w-0">
                   <div className="flex flex-wrap items-center gap-2 text-xs">
-                    <span className="font-mono tabular-nums font-semibold text-[#18181b] dark:text-[#ededef]">
+                    <span className="font-mono tabular-nums font-semibold text-strong">
                       {formattedDate}
                     </span>
                     <span
@@ -68,11 +68,11 @@ export default function CompetitionsTable({ onNavigate }) {
                     >
                       {evt.type}
                     </span>
-                    <span className="text-[#64646e] dark:text-[#8a8a93] text-xs flex items-center gap-1">
+                    <span className="text-secondary text-xs flex items-center gap-1">
                       {isLocal ? (
-                        <MapPin className="w-3 h-3 text-[#00966e]" />
+                        <MapPin className="w-3 h-3 text-accent" />
                       ) : (
-                        <Globe className="w-3 h-3 text-[#64646e] dark:text-[#8a8a93]" />
+                        <Globe className="w-3 h-3 text-muted" />
                       )}
                       <span>{evt.location}</span>
                     </span>
@@ -80,12 +80,12 @@ export default function CompetitionsTable({ onNavigate }) {
 
                   <h3
                     onClick={() => onNavigate('calendar')}
-                    className="text-xs sm:text-sm font-semibold text-[#18181b] dark:text-[#ededef] group-hover:text-[#00966e] transition-colors cursor-pointer"
+                    className="text-xs sm:text-sm font-semibold text-strong group-hover:text-accent transition-colors cursor-pointer"
                   >
                     {evt.title}
                   </h3>
 
-                  <div className="text-[11px] text-[#64646e] dark:text-[#8a8a93] flex flex-wrap gap-x-3 gap-y-0.5">
+                  <div className="text-[11px] text-muted flex flex-wrap gap-x-3 gap-y-0.5">
                     <span>{lang === 'bg' ? 'Формат:' : 'Format:'} {evt.format}</span>
                     <span className="font-mono">{lang === 'bg' ? 'Тежест:' : 'Weight:'} {evt.weight}</span>
                   </div>
@@ -96,10 +96,10 @@ export default function CompetitionsTable({ onNavigate }) {
                     href={evt.url}
                     target="_blank"
                     rel="noreferrer"
-                    className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded border border-[#d6dae1] dark:border-[#292f42] hover:bg-white dark:hover:bg-[#13161f] text-[#18181b] dark:text-[#ededef] text-xs font-medium transition-colors whitespace-nowrap shrink-0"
+                    className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded border border-border-default hover:bg-elevated text-strong text-xs font-medium transition-colors whitespace-nowrap shrink-0"
                   >
                     <span>{t.common.website}</span>
-                    <ExternalLink className="w-3 h-3 text-[#64646e] dark:text-[#8a8a93]" />
+                    <ExternalLink className="w-3 h-3 text-muted" />
                   </a>
                 </div>
               </div>
@@ -108,10 +108,10 @@ export default function CompetitionsTable({ onNavigate }) {
         </div>
       </div>
 
-      <div className="p-3 border-t border-[#d6dae1] dark:border-[#292f42] bg-[#f0f3f6] dark:bg-[#141722] text-center">
+      <div className="p-3 border-t border-border-default bg-elevated text-center">
         <button
           onClick={() => onNavigate('calendar')}
-          className="text-xs text-[#64646e] dark:text-[#8a8a93] hover:text-[#18181b] dark:hover:text-[#ededef] font-medium transition-colors cursor-pointer"
+          className="text-xs text-secondary hover:text-strong font-medium transition-colors cursor-pointer"
         >
           {t.hub.allEvents}
         </button>

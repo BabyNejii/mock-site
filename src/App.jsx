@@ -67,11 +67,11 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen flex flex-col bg-[#eaedf1] text-[#18181b] dark:bg-[#131620] dark:text-[#ededef] font-sans antialiased transition-colors duration-100">
+    <div className="min-h-screen flex flex-col bg-page text-strong font-sans antialiased">
       {/* Toast Notification */}
       {toastMessage && (
-        <div className="fixed bottom-5 right-5 z-50 flex items-center gap-3 px-4 py-2.5 rounded-md border border-[#d6dae1] dark:border-[#292f42] bg-white dark:bg-[#131315] text-[#18181b] dark:text-[#ededef] text-xs font-medium shadow-md transition-all">
-          <span className="w-2 h-2 rounded-full bg-[#00966e] shrink-0" />
+        <div className="fixed bottom-5 right-5 z-50 flex items-center gap-3 px-4 py-2.5 rounded-lg border border-border-default bg-elevated text-strong text-sm font-medium shadow-lg">
+          <span className="w-1.5 h-1.5 rounded-full bg-accent shrink-0" />
           <span>{toastMessage}</span>
         </div>
       )}

@@ -2,51 +2,148 @@
 
 @custom-variant dark (&:where(.dark, .dark *));
 
-@theme {
-  --font-sans: "Inter", "Geist", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  --font-mono: "JetBrains Mono", "Geist Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+/* ──────────────────────────────────────────────────────────────
+   Display family: Chakra Petch for Latin, Play for Cyrillic.
+   The browser picks per-glyph via unicode-range, so one
+   `font-display` family renders both EN and BG headings correctly
+   with zero JS — even in mixed strings or on live language toggle.
+   ────────────────────────────────────────────────────────────── */
+@font-face {
+  font-family: "Display";
+  font-weight: 500 700;
+  font-style: normal;
+  font-display: swap;
+  src: local("Chakra Petch");
+  /* Latin + Latin-ext + punctuation */
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+2000-206F, U+2070-209F, U+20A0-20BF, U+2190-21FF, U+2460-24FF;
+}
+@font-face {
+  font-family: "Display";
+  font-weight: 400 700;
+  font-style: normal;
+  font-display: swap;
+  src: local("Play");
+  /* Cyrillic + Cyrillic-ext */
+  unicode-range: U+0400-045F, U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
 }
 
+/* ── Runtime token values (these flip between light / dark) ────── */
 :root {
   color-scheme: light;
+
+  --bg-base:     #eef2ef;   /* tinted off-white — no glare */
+  --bg-surface:  #f7faf8;   /* cards lift off base */
+  --bg-elevated: #ffffff;   /* popovers / modals */
+
+  --border-default: #d5e0da;
+  --border-strong:  #c3d2c9;
+  --divide:         #e1e9e4;
+
+  --text-strong:    #15201b;
+  --text-secondary: #3c4a43;
+  --text-muted:     #5e6e66;
+
+  --accent:       #157a54;   /* pine */
+  --accent-hover: #0f6344;
+  --accent-soft:  #157a54;   /* used with /opacity for tints */
+  --on-accent:    #ffffff;
+
+  --highlight:      #c25a4e;  /* brick-red — featured / #1 / countdown */
+  --highlight-soft: #c25a4e;
+
+  --success: #1a9e5f;
+  --warning: #b5790a;
+  --danger:  #c64a3e;
+
+  --dot: #c3d4cb;            /* blueprint grid on hero */
 }
 
 .dark {
   color-scheme: dark;
+
+  --bg-base:     #0d1310;    /* deep floor — cards rise from near-black green */
+  --bg-surface:  #19231e;    /* clear step up from floor */
+  --bg-elevated: #232f29;    /* third, distinct step */
+
+  --border-default: #2c3b34;
+  --border-strong:  #3b5049;
+  --divide:         #212d27;
+
+  --text-strong:    #e4eae6;
+  --text-secondary: #b3c0ba;
+  --text-muted:     #7b8c83;
+
+  --accent:       #2fa579;   /* brighter pine on dark */
+  --accent-hover: #3dbe8d;
+  --accent-soft:  #2fa579;
+  --on-accent:    #06120d;
+
+  --highlight:      #e57b82;  /* rose-red — mild, not alarm */
+  --highlight-soft: #e57b82;
+
+  --success: #3dd68c;
+  --warning: #e0a33e;
+  --danger:  #e0695e;
+
+  --dot: #2b3f37;
 }
 
-/* Atmospheric Ambient Background */
+/* ── Token → utility mapping (inline resolves var at use site) ─── */
+@theme inline {
+  --font-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+  --font-display: "Display", "Inter", sans-serif;
+
+  --color-page:     var(--bg-base);
+  --color-surface:  var(--bg-surface);
+  --color-elevated: var(--bg-elevated);
+
+  --color-border-default: var(--border-default);
+  --color-border-strong:  var(--border-strong);
+  --color-divide:         var(--divide);
+
+  --color-strong:    var(--text-strong);
+  --color-secondary: var(--text-secondary);
+  --color-muted:     var(--text-muted);
+
+  --color-accent:       var(--accent);
+  --color-accent-hover: var(--accent-hover);
+  --color-accent-soft:  var(--accent-soft);
+  --color-on-accent:    var(--on-accent);
+
+  --color-highlight:      var(--highlight);
+  --color-highlight-soft: var(--highlight-soft);
+
+  --color-success: var(--success);
+  --color-warning: var(--warning);
+  --color-danger:  var(--danger);
+}
+
+/* ── Base element styling (tokens — no .dark duplicate needed) ─── */
 body {
-  background-color: #eaedf1;
-  background-image: radial-gradient(ellipse 80% 50% at 50% -10%, rgba(0, 150, 110, 0.05), transparent 70%);
-  background-attachment: fixed;
+  background-color: var(--bg-base);
+  color: var(--text-strong);
 }
 
-.dark body {
-  background-color: #131620;
-  background-image: radial-gradient(ellipse 80% 50% at 50% -10%, rgba(0, 150, 110, 0.12), transparent 70%);
-  background-attachment: fixed;
+/* Blueprint dot-grid: apply `.hero-grid` to a positioned container.
+   Masked so it fades out — reads as schematic, not graph paper. */
+.hero-grid::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background-image: radial-gradient(var(--dot) 1px, transparent 1px);
+  background-size: 18px 18px;
+  -webkit-mask-image: radial-gradient(ellipse 70% 70% at 22% 10%, #000 20%, transparent 70%);
+  mask-image: radial-gradient(ellipse 70% 70% at 22% 10%, #000 20%, transparent 70%);
+  opacity: 0.45;
 }
+/* Keep hero content above the decorative grid layer */
+.hero-grid > * { position: relative; z-index: 1; }
 
-/* Refined Scrollbars */
-::-webkit-scrollbar {
-  width: 5px;
-  height: 5px;
-}
-::-webkit-scrollbar-track {
-  background: transparent;
-}
-::-webkit-scrollbar-thumb {
-  background: #d4d4d8;
-  border-radius: 9999px;
-}
-.dark ::-webkit-scrollbar-thumb {
-  background: #242428;
-  border-radius: 9999px;
-}
-::-webkit-scrollbar-thumb:hover {
-  background: #a1a1aa;
-}
-.dark ::-webkit-scrollbar-thumb:hover {
-  background: #383842;
-}
+/* ── Refined scrollbars ───────────────────────────────────────── */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--border-strong); border-radius: 9999px; }
+::-webkit-scrollbar-thumb:hover { background: var(--text-muted); }

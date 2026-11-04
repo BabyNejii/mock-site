@@ -26,12 +26,12 @@ export default function CalendarView() {
 
   const getEventTypeBadge = (type) => {
     if (type.includes('Sofia') || type.includes('Local')) {
-      return 'bg-[#00966e]/10 text-[#00966e] border-[#00966e]/25';
+      return 'bg-accent/10 text-accent border-accent/25';
     }
     if (type.includes('National') || type.includes('Selection')) {
-      return 'bg-purple-500/10 text-purple-600 dark:text-purple-400 border-purple-500/25';
+      return 'bg-highlight/10 text-highlight border-highlight/25';
     }
-    return 'bg-blue-500/10 text-blue-600 dark:text-blue-400 border-blue-500/25';
+    return 'bg-elevated text-secondary border-border-strong';
   };
 
   const handleDownloadIcs = (event) => {
@@ -57,14 +57,17 @@ END:VCALENDAR`;
 
   return (
     <div className="space-y-6">
-      {/* Header Panel */}
-      <div className="rounded-xl border border-[#d6dae1] dark:border-[#292f42] bg-white dark:bg-[#1a1e2b] p-6 shadow-xs transition-colors">
-        <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-4 pb-4 border-b border-[#d6dae1] dark:border-[#292f42]">
-          <div className="space-y-1">
-            <h1 className="text-xl sm:text-2xl font-bold tracking-tight text-[#18181b] dark:text-[#ededef]">
+      {/* Header */}
+      <div className="space-y-4">
+        <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
+          <div className="space-y-2">
+            <span className="font-mono text-[11px] font-medium uppercase tracking-[0.14em] text-accent">
+              {lang === 'bg' ? 'Календар' : 'Calendar'}
+            </span>
+            <h1 className="font-display text-3xl sm:text-4xl font-bold tracking-tight text-strong">
               {lang === 'bg' ? 'Календар на състезания и квалификации' : 'Competitions and Qualifiers Calendar'}
             </h1>
-            <p className="text-xs sm:text-sm text-[#64646e] dark:text-[#8a8a93]">
+            <p className="text-sm sm:text-base text-secondary max-w-2xl">
               {lang === 'bg'
                 ? 'График на български присъствени събития, национални квалификации за ECSC и ключови международни турнири.'
                 : 'Schedule of Bulgarian on-site events, national team selection trials, and major global tournaments.'}
@@ -72,31 +75,31 @@ END:VCALENDAR`;
           </div>
 
           {/* Search */}
-          <div className="relative">
-            <Search className="w-4 h-4 absolute left-3 top-2.5 text-[#64646e] dark:text-[#8a8a93]" />
+          <div className="relative shrink-0">
+            <Search className="w-4 h-4 absolute left-3 top-2.5 text-muted" />
             <input
               type="text"
               placeholder={lang === 'bg' ? 'Филтриране на събития...' : 'Filter events...'}
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="pl-9 pr-3 py-1.5 rounded-md border border-[#d6dae1] dark:border-[#292f42] bg-[#f3f3f5] dark:bg-[#131620] text-[#18181b] dark:text-[#ededef] text-xs focus:outline-none focus:border-[#00966e] w-full sm:w-60"
+              className="pl-9 pr-3 py-1.5 rounded-lg border border-border-default bg-elevated text-strong text-sm focus:outline-none focus:border-accent w-full sm:w-60"
             />
           </div>
         </div>
 
         {/* Filter Controls */}
-        <div className="pt-3 flex flex-wrap items-center gap-1.5">
-          <span className="text-xs font-mono text-[#64646e] dark:text-[#8a8a93] mr-2">
+        <div className="flex flex-wrap items-center gap-1.5">
+          <span className="text-[11px] font-mono uppercase tracking-wide text-muted mr-2">
             {lang === 'bg' ? 'ТИП:' : 'TYPE:'}
           </span>
           {filterOptions.map((opt) => (
             <button
               key={opt.id}
               onClick={() => setSelectedType(opt.id)}
-              className={`px-2.5 py-1 rounded text-xs font-medium transition-colors cursor-pointer whitespace-nowrap shrink-0 ${
+              className={`px-2.5 py-1 rounded-lg text-xs font-medium transition-colors cursor-pointer whitespace-nowrap shrink-0 ${
                 selectedType === opt.id
-                  ? 'bg-[#18181b] text-white dark:bg-[#ededef] dark:text-[#0c0e12]'
-                  : 'border border-[#d6dae1] dark:border-[#292f42] bg-transparent text-[#64646e] dark:text-[#8a8a93] hover:text-[#18181b] dark:hover:text-[#ededef]'
+                  ? 'bg-accent/12 text-accent'
+                  : 'text-secondary hover:text-strong hover:bg-elevated'
               }`}
             >
               {opt.label}
@@ -106,9 +109,9 @@ END:VCALENDAR`;
       </div>
 
       {/* Events List Feed */}
-      <div className="rounded-xl border border-[#d6dae1] dark:border-[#292f42] bg-white dark:bg-[#1a1e2b] shadow-xs divide-y divide-[#e4e4e7] dark:divide-[#222632] overflow-hidden">
+      <div className="rounded-2xl border border-border-default bg-surface divide-y divide-divide overflow-hidden">
         {filteredEvents.length === 0 ? (
-          <div className="p-8 text-center text-xs text-[#64646e] dark:text-[#8a8a93]">
+          <div className="p-8 text-center text-sm text-secondary">
             {lang === 'bg'
               ? 'Няма намерени състезания по избраните критерии.'
               : 'No competitions found matching your search criteria.'}
@@ -123,11 +126,11 @@ END:VCALENDAR`;
             return (
               <div
                 key={evt.id}
-                className="p-5 hover:bg-[#f3f3f5] dark:hover:bg-[#181b24] transition-colors flex flex-col md:flex-row md:items-start justify-between gap-4 group"
+                className="p-5 hover:bg-elevated transition-colors flex flex-col md:flex-row md:items-start justify-between gap-4 group"
               >
                 <div className="space-y-2 min-w-0">
                   <div className="flex flex-wrap items-center gap-2 text-xs">
-                    <span className="font-mono tabular-nums font-bold text-[#18181b] dark:text-[#ededef]">
+                    <span className="font-mono tabular-nums font-bold text-strong">
                       {formattedDate}
                     </span>
                     <span
@@ -137,31 +140,31 @@ END:VCALENDAR`;
                     >
                       {evt.type}
                     </span>
-                    <span className="text-[#64646e] dark:text-[#8a8a93] text-xs">
+                    <span className="text-secondary text-xs">
                       {evt.location}
                     </span>
                   </div>
 
-                  <h3 className="text-base font-bold text-[#18181b] dark:text-[#ededef] group-hover:text-[#00966e] transition-colors">
+                  <h3 className="text-base font-bold text-strong group-hover:text-accent transition-colors">
                     {evt.title}
                   </h3>
 
-                  <p className="text-xs sm:text-sm text-[#64646e] dark:text-[#8a8a93] leading-relaxed max-w-3xl">
+                  <p className="text-sm text-secondary leading-relaxed max-w-3xl">
                     {evt.description}
                   </p>
 
-                  <div className="text-xs text-[#64646e] dark:text-[#8a8a93] flex flex-wrap gap-x-4 gap-y-1 pt-1">
+                  <div className="text-sm text-secondary flex flex-wrap gap-x-4 gap-y-1 pt-1">
                     <span>
                       {lang === 'bg' ? 'Организатор:' : 'Organizer:'}{' '}
-                      <strong className="font-medium text-[#18181b] dark:text-[#ededef]">{evt.organizer}</strong>
+                      <strong className="font-medium text-strong">{evt.organizer}</strong>
                     </span>
                     <span>
                       {lang === 'bg' ? 'Формат:' : 'Format:'}{' '}
-                      <strong className="font-medium text-[#18181b] dark:text-[#ededef]">{evt.format}</strong>
+                      <strong className="font-medium text-strong">{evt.format}</strong>
                     </span>
                     <span className="font-mono">
                       {lang === 'bg' ? 'Тежест:' : 'Weight:'}{' '}
-                      <strong className="font-mono font-medium text-[#18181b] dark:text-[#ededef]">{evt.weight}</strong>
+                      <strong className="font-mono font-medium tabular-nums text-strong">{evt.weight}</strong>
                     </span>
                   </div>
                 </div>
@@ -169,7 +172,7 @@ END:VCALENDAR`;
                 <div className="shrink-0 flex items-center gap-2 pt-2 md:pt-0">
                   <button
                     onClick={() => handleDownloadIcs(evt)}
-                    className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded border border-[#d6dae1] dark:border-[#292f42] hover:bg-white dark:hover:bg-[#13161f] text-[#18181b] dark:text-[#ededef] text-xs font-mono font-medium transition-colors cursor-pointer whitespace-nowrap shrink-0"
+                    className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-border-default hover:bg-elevated text-strong text-xs font-mono font-medium transition-colors cursor-pointer whitespace-nowrap shrink-0"
                     title={lang === 'bg' ? 'Експортирай към .ics календар' : 'Export event to .ics format'}
                   >
                     <Download className="w-3.5 h-3.5" />
@@ -179,7 +182,7 @@ END:VCALENDAR`;
                     href={evt.url}
                     target="_blank"
                     rel="noreferrer"
-                    className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded bg-[#00966e] hover:bg-[#00825f] text-white text-xs font-semibold shadow-xs transition-colors whitespace-nowrap shrink-0"
+                    className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg bg-accent hover:bg-accent-hover text-on-accent text-xs font-semibold transition-colors whitespace-nowrap shrink-0"
                   >
                     <span>{lang === 'bg' ? 'Регистрация' : 'Register'}</span>
                     <ExternalLink className="w-3.5 h-3.5" />

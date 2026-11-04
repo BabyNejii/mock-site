@@ -42,12 +42,15 @@ export default function OnboardingView() {
 
   return (
     <div className="space-y-6">
-      {/* Header Panel */}
-      <div className="rounded-xl border border-[#d6dae1] dark:border-[#292f42] bg-white dark:bg-[#1a1e2b] p-6 shadow-xs transition-colors">
-        <h1 className="text-xl sm:text-2xl font-bold tracking-tight text-[#18181b] dark:text-[#ededef]">
+      {/* Header */}
+      <div className="space-y-2">
+        <span className="font-mono text-[11px] font-medium uppercase tracking-[0.14em] text-accent">
+          {lang === 'bg' ? 'Наръчник' : 'Starter Guide'}
+        </span>
+        <h1 className="font-display text-3xl sm:text-4xl font-bold tracking-tight text-strong">
           {lang === 'bg' ? 'Наръчник за първи стъпки в CTF' : 'Capture The Flag Starter Guide'}
         </h1>
-        <p className="text-xs sm:text-sm text-[#64646e] dark:text-[#8a8a93] mt-1 max-w-3xl">
+        <p className="text-sm sm:text-base text-secondary max-w-3xl">
           {lang === 'bg'
             ? 'Структурирана програма за студенти от българските университети (ТУ-София, ФМИ, УНСС) и разработчици, навлизащи в състезателната киберсигурност.'
             : 'A structured roadmap for Bulgarian university students (TU Sofia, FMI, UNWE) and developers entering competitive cybersecurity.'}
@@ -55,19 +58,19 @@ export default function OnboardingView() {
       </div>
 
       {/* Sequential Roadmap */}
-      <div className="rounded-xl border border-[#d6dae1] dark:border-[#292f42] bg-white dark:bg-[#1a1e2b] p-6 shadow-xs">
-        <div className="pb-3 mb-6 border-b border-[#d6dae1] dark:border-[#292f42] flex items-center justify-between">
+      <div className="rounded-2xl border border-border-default bg-surface p-6">
+        <div className="pb-3 mb-6 border-b border-border-default flex items-center justify-between">
           <div>
-            <h2 className="font-bold text-sm sm:text-base text-[#18181b] dark:text-[#ededef]">
+            <h2 className="font-bold text-sm sm:text-base text-strong">
               {lang === 'bg' ? 'Четиристепенно развитие' : 'The Four-Stage Progression'}
             </h2>
-            <p className="text-xs text-[#64646e] dark:text-[#8a8a93]">
+            <p className="text-sm text-secondary">
               {lang === 'bg'
                 ? 'От първите конзолни команди до квалификациите за Европейското първенство'
                 : 'From first terminal commands to European championship qualifications'}
             </p>
           </div>
-          <span className="text-xs font-mono font-medium text-[#00966e]">
+          <span className="text-[11px] font-mono uppercase tracking-wide text-accent">
             {lang === 'bg' ? 'ПЪТНА КАРТА' : 'ROADMAP'}
           </span>
         </div>
@@ -76,35 +79,35 @@ export default function OnboardingView() {
           {onboardingRoadmap.map((stage) => (
             <div
               key={stage.step}
-              className="p-5 rounded-lg border border-[#d6dae1] dark:border-[#292f42] bg-[#f0f3f6] dark:bg-[#141722] space-y-3"
+              className="p-5 rounded-2xl border border-border-default bg-elevated space-y-3"
             >
               <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
                 <div className="flex items-center gap-2">
-                  <span className="px-2 py-0.5 rounded text-[11px] font-mono font-bold bg-[#00966e]/10 text-[#00966e] border border-[#00966e]/20 whitespace-nowrap shrink-0">
+                  <span className="px-2 py-0.5 rounded text-[11px] font-mono font-bold bg-accent/10 text-accent border border-accent/25 whitespace-nowrap shrink-0 tabular-nums">
                     {lang === 'bg' ? `ЕТАП ${stage.step}` : `STAGE ${stage.step}`}
                   </span>
-                  <h3 className="text-sm sm:text-base font-bold text-[#18181b] dark:text-[#ededef]">
+                  <h3 className="text-sm sm:text-base font-bold text-strong">
                     {stage.title}
                   </h3>
                 </div>
-                <span className="text-xs font-mono text-[#64646e] dark:text-[#8a8a93] whitespace-nowrap shrink-0">
+                <span className="text-xs font-mono text-muted whitespace-nowrap shrink-0">
                   {stage.timeframe}
                 </span>
               </div>
 
-              <p className="text-xs sm:text-sm text-[#64646e] dark:text-[#8a8a93] leading-relaxed">
+              <p className="text-sm text-secondary leading-relaxed">
                 {stage.description}
               </p>
 
               <div>
-                <span className="text-xs font-semibold text-[#18181b] dark:text-[#ededef] block mb-1">
+                <span className="text-sm font-semibold text-strong block mb-1">
                   {lang === 'bg' ? 'Основни теми:' : 'Core Topics:'}
                 </span>
                 <div className="flex flex-wrap gap-1.5">
                   {stage.keyTopics.map((topic, i) => (
                     <span
                       key={i}
-                      className="px-2 py-0.5 rounded text-xs bg-white dark:bg-[#1a1e2b] text-[#18181b] dark:text-[#ededef] border border-[#d6dae1] dark:border-[#292f42]"
+                      className="px-2 py-0.5 rounded text-xs bg-surface text-strong border border-border-default"
                     >
                       {topic}
                     </span>
@@ -112,23 +115,23 @@ export default function OnboardingView() {
                 </div>
               </div>
 
-              <div className="pt-2 border-t border-[#d6dae1] dark:border-[#292f42]">
-                <span className="text-xs font-semibold text-[#18181b] dark:text-[#ededef] block mb-1">
+              <div className="pt-2 border-t border-divide">
+                <span className="text-sm font-semibold text-strong block mb-1">
                   {lang === 'bg' ? 'Препоръчани платформи за подготовка:' : 'Recommended Training Platforms:'}
                 </span>
                 <div className="space-y-1">
                   {stage.recommendedResources.map((res, i) => (
-                    <div key={i} className="flex flex-col sm:flex-row sm:items-center justify-between gap-1 text-xs">
+                    <div key={i} className="flex flex-col sm:flex-row sm:items-center justify-between gap-1 text-sm">
                       <a
                         href={res.url}
                         target="_blank"
                         rel="noreferrer"
-                        className="text-[#00966e] hover:underline inline-flex items-center gap-1 font-semibold"
+                        className="text-accent hover:underline inline-flex items-center gap-1 font-semibold"
                       >
                         <span>{res.name}</span>
                         <ExternalLink className="w-3 h-3" />
                       </a>
-                      <span className="text-[#64646e] dark:text-[#8a8a93]">{res.note}</span>
+                      <span className="text-secondary">{res.note}</span>
                     </div>
                   ))}
                 </div>
@@ -139,27 +142,27 @@ export default function OnboardingView() {
       </div>
 
       {/* Core Disciplines List */}
-      <div className="rounded-xl border border-[#d6dae1] dark:border-[#292f42] bg-white dark:bg-[#1a1e2b] p-6 shadow-xs">
-        <div className="pb-3 mb-4 border-b border-[#d6dae1] dark:border-[#292f42]">
-          <h2 className="font-bold text-sm sm:text-base text-[#18181b] dark:text-[#ededef]">
+      <div className="rounded-2xl border border-border-default bg-surface p-6">
+        <div className="pb-3 mb-4 border-b border-border-default">
+          <h2 className="font-bold text-sm sm:text-base text-strong">
             {lang === 'bg' ? 'Основни категории и препоръчан софтуер' : 'Standard CTF Categories & Toolchains'}
           </h2>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           {categories.map((cat, i) => (
             <div
               key={i}
-              className="p-4 rounded-lg border border-[#d6dae1] dark:border-[#292f42] bg-[#f0f3f6] dark:bg-[#141722] space-y-1.5"
+              className="p-4 rounded-2xl border border-border-default bg-elevated space-y-1.5"
             >
-              <h3 className="font-bold text-xs sm:text-sm text-[#18181b] dark:text-[#ededef]">
+              <h3 className="font-bold text-sm text-strong">
                 {cat.name}
               </h3>
-              <p className="text-xs text-[#64646e] dark:text-[#8a8a93] leading-relaxed">
+              <p className="text-sm text-secondary leading-relaxed">
                 {cat.desc}
               </p>
-              <div className="pt-1 text-xs font-mono text-[#00966e]">
-                <span className="text-[#64646e] dark:text-[#8a8a93] font-sans">
+              <div className="pt-1 text-xs font-mono text-accent">
+                <span className="text-secondary font-sans">
                   {lang === 'bg' ? 'Инструменти: ' : 'Tools: '}
                 </span>
                 {cat.tools}
@@ -170,31 +173,31 @@ export default function OnboardingView() {
       </div>
 
       {/* FAQ Accordion */}
-      <div className="rounded-xl border border-[#d6dae1] dark:border-[#292f42] bg-white dark:bg-[#1a1e2b] p-6 shadow-xs">
-        <div className="pb-3 mb-4 border-b border-[#d6dae1] dark:border-[#292f42]">
-          <h2 className="font-bold text-sm sm:text-base text-[#18181b] dark:text-[#ededef]">
+      <div className="rounded-2xl border border-border-default bg-surface p-6">
+        <div className="pb-3 mb-4 border-b border-border-default">
+          <h2 className="font-bold text-sm sm:text-base text-strong">
             {lang === 'bg' ? 'Често задавани въпроси' : 'Frequently Asked Questions'}
           </h2>
         </div>
 
-        <div className="divide-y divide-[#e4e4e7] dark:divide-[#222632] border border-[#d6dae1] dark:border-[#292f42] rounded-lg overflow-hidden">
+        <div className="divide-y divide-divide border border-border-default rounded-2xl overflow-hidden">
           {commonFaq.map((item, idx) => {
             const isOpen = openFaq === idx;
             return (
               <div key={idx} className="bg-transparent">
                 <button
                   onClick={() => setOpenFaq(isOpen ? -1 : idx)}
-                  className="w-full p-4 text-left flex items-center justify-between text-xs sm:text-sm font-semibold text-[#18181b] dark:text-[#ededef] hover:bg-[#f3f3f5] dark:hover:bg-[#181b24] transition-colors cursor-pointer"
+                  className="w-full p-4 text-left flex items-center justify-between text-sm font-semibold text-strong hover:bg-elevated transition-colors cursor-pointer"
                 >
                   <span>{item.q}</span>
                   {isOpen ? (
-                    <ChevronUp className="w-4 h-4 text-[#64646e] dark:text-[#8a8a93]" />
+                    <ChevronUp className="w-4 h-4 text-muted" />
                   ) : (
-                    <ChevronDown className="w-4 h-4 text-[#64646e] dark:text-[#8a8a93]" />
+                    <ChevronDown className="w-4 h-4 text-muted" />
                   )}
                 </button>
                 {isOpen && (
-                  <div className="p-4 pt-1 bg-[#f0f3f6] dark:bg-[#141722] text-xs sm:text-sm text-[#64646e] dark:text-[#8a8a93] leading-relaxed border-t border-[#d6dae1] dark:border-[#292f42]">
+                  <div className="p-4 pt-1 bg-elevated text-sm text-secondary leading-relaxed border-t border-divide">
                     {item.a}
                   </div>
                 )}
